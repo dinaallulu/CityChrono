@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BootStrap CSS Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <!-- Fonts icons Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Fonts Awesome icons Link -->
+    <script src="https://kit.fontawesome.com/eda60b0009.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- CSS file Link -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>CityChrono</title>
+</head>
+
+<body class="body">
+    <!-- START Header Section -->
+    <header>
+        <div class="headerSection">
+            <span class="material-symbols-outlined"> cottage </span>
+            <h1>CityChrono</h1>
+        </div>
+    </header>
+    <!-- END Header Section -->
+
+    <!-- START Search Section -->
+    <section class="search_box">
+        <div class="content">
+            <form action="" method="get" class="search_bar" id="searchForm">
+                <input type="text" id="searchInput" placeholder="search city ?" />
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </section>
+    <!-- END Search Section -->
+
+        <!-- START Time & Temp Section -->
+        <section class="timpsec">
+            <!-- contain the time and weather boxes -->
+            <div class="container">
+                <!-- time box 1 -->
+                <div class="time">
+                    <div class="icon_line">
+                        <div class="iconOfTime"><i class="far fa-clock"></i></div>
+                        <div class="verticalLine"></div>
+                    </div>
+                    <div class="detailsTime">
+                        <p class="city">New York, US</p> 
+                        <p class="currentTimeInHour">10:</p>
+                        <p class="currentTimeInMin">20</p> 
+                    </div>
+                    <div class="statusTime">AM</div>
+                </div>
+    
+                <!-- weather box 2 -->
+                <div class="weather">
+                    <div class="details">                   
+                        <p class="day">Tuesday, </p>
+                        <p class="date_month"> May</p>
+                        <p class="date_num"> 14 </p>                                       
+                        <div class="temper">
+                            <p class="temp">29</p> <div class=cel>°C</div>
+                        </div>
+                        <p class="status">Sunny</p>
+                    </div>
+                    <div class="statusPicture">
+                        <img src="image/clear.png" class="weather_img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END Time & Temp Section -->
+
+    <!-- START ToDo - music Section -->
+    <section class="ToDoMusic">
+        <div class="container">
+            <!-- START To-Do-List Div -->
+            <div class="wrap">
+                <!-- start of the to do block -->
+                <div class="todo-wrapper">
+                    <!-- the sart of the header section of the to dolist -->
+                    <header>
+                        <div class="title">
+                            <span class="material-symbols-outlined">event_list</span>
+                            <h1>To Do List</h1>
+                        </div>
+                        <!-- adding a new task -->
+                        <button id="create">
+                            <span class="material-symbols-outlined icon">add</span>
+                        </button>
+                    </header>
+                    <!--  the sec div for the items -->
+                    <div class="todo-list" id="list">
+                        <!-- <div class="item"> 
+                        <input type="checkbox"  />
+                        <input type="text" value="to do content goes here" disabled />
+                        this div for the btns like edit delete etc
+                        i need to make them appear upon hover
+                        <div class="actions">
+                            <button class="material-icons">
+                                <span class="material-symbols-outlined icon">edit</span>
+                            </button>
+                            <button class="material-icons remove-btn">
+                                <span class="material-symbols-outlined icon">close</span>
+                            </button>
+                        </div>
+                    </div> -->
+                    </div>
+                </div>
+                <!-- end of the to do block -->
+            </div>
+            <!-- END To-Do-List Div -->
+
+            <!-- START Spotify Div -->
+            <!-- the media features  -->
+            <div class="media-wrapper">
+                <nav class="media-tabs">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="spotify-tab" data-toggle="tab" data-target="#spotify"
+                                type="button" role="tab" aria-controls="spotify" aria-selected="true">
+                                <span class="spot-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#E5ECE9"
+                                        class="bi bi-spotify" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="radio-tab" data-toggle="tab" data-target="#radio" type="button"
+                                role="tab" aria-controls="radio" aria-selected="false">
+                                <span class="material-symbols-outlined">radio</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="spotify" role="tabpanel" aria-labelledby="spotify-tab">
+                        <div class="spot-content">
+                            <button id="show-playlist1">
+                                <img src="img/optimal focus pic.PNG" alt="" class="playlist-btn" />
+                            </button>
+                            <button id="show-playlist2">
+                                <img src="img/quran.PNG" alt="" class="playlist-btn" />
+                            </button>
+                            <button id="show-playlist3">
+                                <img src="img/classical music.PNG" alt="" class="playlist-btn" />
+                            </button>
+                            <button id="show-playlist4">
+                                <img src="img/arab.PNG" alt="" class="playlist-btn" />
+                            </button>
+                            <button id="show-playlist5">
+                                <img src="img/english.PNG" alt="" class="playlist-btn" />
+                            </button>
+                            <button id="show-playlist6">
+                                <img src="img/night pop.PNG" alt="" class="playlist-btn" />
+                            </button>
+
+                            <div id="playlist-container">
+                                <button id="back-to-main">
+                                    <span class="material-symbols-outlined">arrow_back</span>
+                                </button>
+
+                                <!-- optimam focus -->
+                                <iframe id="playlist1-iframe" style="border-radius: 12px"
+                                    src="https://open.spotify.com/embed/playlist/6KxgXZbZ95f7LdR0jSvm0h?utm_source=generator&theme=0"
+                                    width="100%" height="352" frameborder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+
+                                <!-- quran playlist -->
+                                <iframe id="playlist2-iframe" style="border-radius: 12px"
+                                    src="https://open.spotify.com/embed/playlist/0jQe1IKjaq5y1lrppD9lkF?utm_source=generator&theme=0"
+                                    width="100%" height="352" frameborder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+
+                                <!-- classical music -->
+                                <iframe id="playlist3-iframe" style="border-radius: 12px"
+                                    src="https://open.spotify.com/embed/album/5UgPCKeC8OuO0M50PJReSu?utm_source=generator&theme=0"
+                                    width="100%" height="352" frameborder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+
+                                <!-- old arabic classics -->
+                                <iframe id="playlist4-iframe" style="border-radius: 12px"
+                                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZyoKpr8bHNc?utm_source=generator&theme=0"
+                                    width="100%" height="352" frameborder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+
+                                <!-- old english chassics -->
+                                <!-- <iframe id="playlist5-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/playlist/0uZ8R0llsUODGHa4B6sE5q?utm_source=generator&theme=0" width="460"
+                            height="250" frameborder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
+
+                                <iframe id="playlist5-iframe" style="border-radius: 12px"
+                                    src="https://open.spotify.com/embed/playlist/0uZ8R0llsUODGHa4B6sE5q?utm_source=generator&theme=0"
+                                    width="100%" height="352" frameborder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                                <!-- night pop -->
+                                <iframe id="playlist6-iframe" style="border-radius: 12px"
+                                    src="https://open.spotify.com/embed/playlist/3V5ktwWffnGnLzsoj3HYOR?utm_source=generator&theme=0"
+                                    width="100%" height="352" frameborder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  -->
+                    <div class="tab-pane fade" id="radio" role="tabpanel" aria-labelledby="radio-tab">
+                        ...
+                    </div>
+                </div>
+            </div>
+            <!-- END Spotify Div -->
+        </div>
+    </section>
+    <!-- END ToDo - music Section -->
+
+    <!-- START News Section -->
+    <section class="newsSection">
+        <div class="container">
+            <div class="newsNav">
+                <a href="index.html">
+                    <h5 class="lastestNews">News</h5>
+                </a>
+                <!-- Start dropdown category -->
+                <div class="dropdown">
+                    <!-- icon category menu -->
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        <span class="material-symbols-outlined"> filter_list </span>
+                    </a>
+                    <!-- Start dropdown category menu -->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" onclick="Search('general')" href="#all" id="all">All news</a>
+                        <a class="dropdown-item" onclick="Search('business')" href="#business"
+                            id="business">Business</a>
+                        <a class="dropdown-item" onclick="Search('technology')" href="#technology"
+                            id="technology">Technology</a>
+                        <a class="dropdown-item" onclick="Search('health')" href="#health" id="health">Health</a>
+                        <a class="dropdown-item" onclick="Search('sport')" href="#sport" id="sport">Sport</a>
+                        <a class="dropdown-item" onclick="Search('entertaiment')" href="#entertaiment"
+                            id="entertaiment">Entertaiment</a>
+                        <a class="dropdown-item" onclick="Search('fashion')" href="#fashion" id="fashion">Fashion</a>
+                        <a class="dropdown-item" onclick="Search('economy')" href="#economy" id="economy">Economy</a>
+                        <a class="dropdown-item" onclick="Search('political')" href="#political"
+                            id="political">Political</a>
+                        <a class="dropdown-item" onclick="Search('crime')" href="#crime" id="crime">Crime</a>
+                    </div>
+                    <!-- End dropdown category menu -->
+                </div>
+                <!-- End dropdown category -->
+            </div>
+            <!-- Start News Display -->
+            <div id="newsdisplay"></div>
+            <!-- End News Display -->
+        </div>
+    </section>
+    <!-- END News Section -->
+
+    <!-- js file Link -->
+    <script src="js/main.js"></script>
+    <!-- JQuery Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!-- BootStrap js Link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

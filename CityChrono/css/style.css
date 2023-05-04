@@ -1,0 +1,1294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    background-color: #071420;
+    /* font-family: ui-monospace; */
+    color: #fff;
+}
+
+/* Srcoll in the body */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ffffffd4;
+    border-radius: 10px;
+}
+
+/* START Header Section */
+.headerSection {
+    display: flex;
+    margin: 20px 10px 5px 25px;
+}
+
+.headerSection .material-symbols-outlined {
+    font-size: 40px;
+    margin-top: 2px;
+    margin-right: 10px;
+    color: #ffffffd4;
+}
+
+/* START of the Responsive part */
+
+/* Media queries for Mobile screens */
+@media screen and (max-width: 767px) {
+    .headerSection {
+        display: flex;
+        margin: 25px 15px 15px 15px;
+        justify-content: center;
+    }
+
+    .headerSection h1 {
+        font-size: 30px;
+    }
+
+    .material-symbols-outlined {
+        font-size: 30px;
+    }
+}
+
+/* End of mobile screen */
+
+/* Media queries for Tablets screens */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .headerSection {
+        display: flex;
+        margin: 25px 15px 15px 15px;
+        justify-content: center;
+    }
+
+    .headerSection h1 {
+        font-size: 30px;
+    }
+
+    .material-symbols-outlined {
+        font-size: 30px;
+    }
+}
+
+/* End of Tablets screens */
+
+/* END of the Responsive part */
+
+/* END Header Section */
+
+/* START Search Section */
+.content {
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.search_bar {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search_bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 15px 40px;
+    font-size: 20px;
+    color: #cac7ca;
+    background-color: #666a8633;
+    border-radius: 65px;
+    letter-spacing: 1px;
+    word-spacing: -1px;
+}
+
+::placeholder {
+    color: #cac7ca74;
+}
+
+.search_bar button {
+    border: 0;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+    background-color: #d5d7d9;
+    color: #071420;
+    position: absolute;
+    right: 25px;
+}
+
+.search_bar button i {
+    width: 25px;
+    font-size: medium;
+    font-weight: 600;
+}
+
+/* START of the Responsive part */
+
+/* Media queries for Mobile screens */
+@media screen and (max-width: 767px) {
+    .content {
+        padding: 0%;
+    }
+
+    .search_bar {
+        width: 80%;
+    }
+
+    .search_bar input {
+        padding: 15px 25px;
+    }
+
+    .search_bar button {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .search_bar button i {
+        margin: auto;
+    }
+}
+
+/* End of mobile screen */
+
+/* Media queries for Tablets screens */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .search_bar {
+        width: 80%;
+    }
+}
+
+/* End of Tablets screens */
+
+/* END of the Responsive part */
+
+/* END Search Section */
+
+/* START Time & Temp Section */
+.timpsec {
+    margin-bottom: 16%;
+    margin-top: 1%;
+}
+
+.container {
+    position: relative;
+}
+
+/* -------------------weather box---------------------------*/
+
+.weather {
+    background-color: #546a7e59;
+    width: 443px;
+    height: 161px;
+    border-radius: 30px;
+    position: absolute;
+    left: 680px;
+    /* top:131px; */
+    display: flex;
+    box-shadow: 1px 1px 2px 2px #00000073;
+}
+
+.statusPicture img {
+    position: absolute;
+    top: 45px;
+    left: 318px;
+    width: 25%;
+}
+
+.details {
+    position: absolute;
+    top: 17px;
+    left: 70px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.day {
+    font-size: large;
+}
+
+.date_month {
+    position: absolute;
+    left: 140px;
+    top: 2px;
+}
+
+.date_num {
+    position: absolute;
+    left: 115px;
+    top: 3px;
+}
+
+.temper {
+    position: relative;
+    margin-top: -27px;
+    margin-left: 15px;
+}
+
+.temp {
+    font-size: 65px;
+    margin-left: 7px;
+}
+
+.cel {
+    position: absolute;
+    top: 18px;
+    left: 82px;
+}
+
+.status {
+    margin-top: -36px;
+    font-size: 21px;
+}
+
+/* ------------------------time box ------------------------- */
+.time {
+    background-color: #546a7e59;
+    width: 443px;
+    height: 161.36px;
+    border-radius: 30px;
+    position: absolute;
+    /* left: 156px; */
+    /* top:131px; */
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 1px 1px 2px 2px #00000073;
+}
+
+.icon_line {
+    display: flex;
+}
+
+.iconOfTime {
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    color: #fff;
+    font-size: 30px;
+
+}
+
+.verticalLine {
+    position: absolute;
+    width: 2px;
+    height: 25px;
+    background-color: white;
+    top: 20px;
+    left: 105px;
+}
+
+.detailsTime {
+    position: absolute;
+    top: 17px;
+    left: 125px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.city {
+    font-size: larger;
+}
+
+.currentTimeInHour {
+    font-size: 55px;
+    position: absolute;
+    left: -4px;
+    top: 27px;
+}
+
+.currentTimeInMin {
+    font-size: 55px;
+    position: absolute;
+    left: 80px;
+    top: 27px;
+}
+
+.statusTime {
+    rotate: 270deg;
+    color: #fff;
+    margin-left: 122px;
+    font-size: large;
+}
+
+/* end time_box */
+
+/* Media queries for mobile screens */
+@media screen and (max-width: 767px) {
+    .time {
+        left: 37px;
+        border-radius: 30px;
+        top: 40px;
+        width: 340px;
+        height: 135px;
+    }
+
+    .weather {
+        border-radius: 30px;
+        width: 340px;
+        left: 37px;
+        top: 194px;
+        height: 135px;
+    }
+
+    .cel {
+        position: absolute;
+        top: 12px;
+        left: 63px;
+    }
+
+    .statusPicture img {
+        left: 253px;
+        width: 24%;
+        top: 42px;
+    }
+
+    .currentTimeInHour {
+        left: -29px;
+    }
+
+    .currentTimeInMin {
+        left: 60px;
+    }
+
+    .statusTime {
+        margin-right: -57px;
+    }
+
+    .temp {
+        font-size: 40px;
+    }
+}
+
+
+
+/* for tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .time {
+        width: 320px;
+        top: 0px;
+        left: 17px;
+    }
+
+    .weather {
+        width: 320px;
+        top: 0px;
+        left: 380px;
+    }
+
+    .statusPicture img {
+        left: 225px;
+        top: 62px;
+        width: 30%;
+    }
+
+    .currentTimeInHour {
+        left: -28px;
+    }
+
+    .currentTimeInMin {
+        left: 55px;
+    }
+
+    .statusTime {
+        margin-left: 345px;
+    }
+
+}
+
+/* END Time & Temp Section */
+
+/* START ToDo - music Section */
+.ToDoMusic .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /* padding: 2rem 6.5rem; */
+}
+
+.nav-tabs {
+    border: none;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    background-color: #fff0;
+}
+
+/* START To-Do-List Div */
+.wrap button {
+    /* these settings will remove anything about the apperance of the normal btn */
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* the wrap div */
+.wrap {
+    /* these values here are changable depending on the main website */
+    display: flex;
+    /* padding: 2rem 6.5rem; */
+    /* backdrop-filter: blur(2px); */
+    width: 49%;
+    /* margin-top: 4%; */
+}
+
+.todo-wrapper {
+    width: 100%;
+    max-width: 500px;
+    /* height: 342px; */
+    background: rgba(84, 106, 123, 0.4);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+}
+
+/* start of the to do section */
+.todo-wrapper header .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-wrapper header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    background: rgba(102, 106, 134, 0.45);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px 13px 0px 0px;
+    padding: 10px 20px 7px 13px;
+}
+
+.todo-wrapper header h1 {
+    color: #E5ECE9;
+    /* font-family: 'Faustina'; font is changable */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    margin-left: 8px;
+    margin-top: 6px;
+}
+
+.todo-wrapper #create {
+    color: #E5ECE9;
+    font-size: 25px;
+}
+
+.todo-wrapper .icon {
+    font-weight: 900;
+}
+
+/* end of header section */
+
+/*  for the items part */
+#list {
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+/* this is to style the scroll */
+#list::-webkit-scrollbar {
+    width: 5.5px;
+}
+
+#list::-webkit-scrollbar-thumb {
+    background-color: #546b82;
+    border-radius: 5px;
+    border-radius: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(217, 217, 217, 0.4);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 17px;
+
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 10px 13px 9px 13px;
+
+    transition: all 1.3s ease-out;
+}
+
+.item:last-of-type {
+    margin-bottom: 25px;
+}
+
+.item input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.item input[type="text"] {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 16px;
+    color: #E5ECE9;
+    flex: 1 1 0%;
+    /* this order will stretch the text to the left*/
+}
+
+/* to make it look like u can type in it */
+.item input[type="text"]:not(:disabled) {
+    border-bottom: 2px solid #E5ECE9;
+}
+
+/* for the completed tasks */
+.item.complete {
+    opacity: 0.9;
+    background-color: rgba(115, 115, 115, 0.4);
+}
+
+.item.complete input[type="text"] {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #E5ECE9;
+    text-decoration-style: solid;
+}
+
+.item:hover,
+.item:focus-within {
+    /* outline: 0.5px solid #E5ECE9; */
+    /* box-shadow: 5px solid #071420; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
+    background-color: rgba(115, 115, 115, 0.4);
+    transform: translateY(2px);
+    transition-delay: 0.2s;
+}
+
+/* the action btn of a item  */
+.actions {
+    display: none;
+}
+
+.item:hover .actions,
+.item:focus .actions {
+    display: contents;
+}
+
+.actions button {
+    margin-right: 6px;
+    opacity: 0.8;
+    /* font-size: 15px; */
+    /* width: 15px; */
+    transform: 0.1s;
+    color: #E5ECE9;
+}
+
+.actions button.remove-btn {
+    color: rgb(240, 9, 55);
+    /* font-size: 15px; */
+    font-weight: 900;
+}
+
+.actions button:hover {
+    opacity: 1;
+}
+
+.actions button:last-of-type {
+    margin-right: 0;
+}
+
+/* hide the default checkbox */
+/* input[type="checkbox"] { */
+/* display: none; */
+/* } */
+
+/* style the custom checkbox */
+.item input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 2px solid #ccc;
+    border-radius: 20%;
+    outline: none;
+    cursor: pointer;
+}
+
+.item input[type="checkbox"]:checked {
+    background-color: #8bb4de;
+    border-color: #8bb4de;
+    position: relative;
+}
+
+.item input[type="checkbox"]:checked::before {
+    /* content: "\f00c"; */
+    content: '\2713';
+    font-size: 18px;
+    font-weight: 900;
+    color: #E5ECE9;
+    /* margin-left: 2px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* end of items part */
+
+/* start of the responsive part */
+
+/* Media queries for mobile screens */
+
+@media screen and (max-width: 767px) {
+    .wrap {
+        padding: 10px;
+        width: auto;
+        margin-left: -130px;
+    }
+
+    .todo-wrapper {
+        width: 360px;
+        height: 190px;
+        margin: 29px 30px 28px 30px;
+    }
+
+    .todo-wrapper header .title h1 {
+        font-size: 20px;
+        font-family: 'Rounded Mplus 1c';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 15px;
+    }
+
+    .item input[type="text"] {
+        font-size: 15px;
+    }
+
+    .item {
+        height: 25px;
+        padding: 7px 8.5px 7px 10px;
+    }
+
+    .actions button.material-icons .icon {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    #list {
+        height: 125px;
+    }
+
+    .item input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+    }
+
+    .item input[type="checkbox"]:checked::before {
+        font-size: 15px;
+    }
+}
+
+/* end of mobile screen */
+
+/* for tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .wrap {
+        margin-top: 20px;
+    }
+
+    .todo-wrapper {
+        max-width: 450px;
+        height: 340px;
+        /* margin-left: 30px; */
+        /* margin-right: 30px; */
+        margin: 29px 0px 0px 0px;
+    }
+
+    #list {
+        height: 250px;
+    }
+
+    header h1 {
+        font-family: 'Faustina';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 30px;
+    }
+
+    .item input[type="text"] {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 19px;
+    }
+
+    .item {
+        height: 35px;
+        padding: 7px 8.5px 7px 10px;
+    }
+
+    .actions button.material-icons .icon {
+        font-size: 20px;
+    }
+}
+
+/* end of the responsive part */
+
+/* END To-Do-List Div */
+
+/* START Spotify Div */
+.media-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    /* height: 415px; */
+    /* margin: 50px auto; */
+    border-radius: 13px;
+}
+
+/* the nav bar */
+.media-wrapper .media-tabs {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 500px;
+    /* height: 45px; */
+    background: rgba(102, 106, 134, 0.45);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px 13px 0px 0px;
+}
+
+.media-wrapper .media-tabs #spotify-tab {
+    padding: 4px 18px 5px 21px;
+    height: 42px;
+    /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), rgba(103, 137, 131, 0.4); */
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 13px 0px 0px 0px;
+    border: none;
+    text-align: center;
+}
+
+.media-wrapper .media-tabs #radio-tab {
+    padding: 4px 18px 5px 21px;
+    height: 42px;
+    /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), rgba(103, 137, 131, 0.4); */
+    /* box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.3); */
+    border: none;
+    margin-left: -4px;
+    text-align: center;
+}
+
+.media-wrapper #myTabContent {
+    width: 100%;
+    height: 100%;
+}
+
+.spot-content button {
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.media-wrapper span,
+svg {
+    color: #fff;
+    background-color: transparent;
+    /* align-self: center;
+    width: 20px;
+    margin-top: 3px; */
+}
+
+.media-wrapper .media-tabs #spotify-tab:hover,
+.media-wrapper .media-tabs #spotify-tab:focus,
+.media-wrapper .media-tabs #radio-tab:hover,
+.media-wrapper .media-tabs #radio-tab:focus {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), rgba(62, 65, 86, 0.7);
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.3);
+}
+
+.media-wrapper .spot-content {
+    max-height: 375px;
+    /* width: 270px; */
+    background: rgba(84, 106, 123, 0.4);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    /* width: 500px; */
+    overflow-y: scroll;
+    padding: 10px 2px 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0px 0px 13px 13px;
+}
+
+.spot-content::-webkit-scrollbar {
+    width: 5.5px;
+}
+
+.spot-content::-webkit-scrollbar-thumb {
+    background-color: #546b82;
+    border-radius: 5px;
+    border-radius: 10px;
+}
+
+.playlist-btn {
+    width: 150px !important;
+    height: 200px !important;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 4px;
+    filter: brightness(90%);
+    transition: filter 0.3s ease;
+}
+
+.playlist-btn:hover {
+    opacity: 0.9;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#playlist-container {
+    background-color: transparent;
+    width: 500px;
+    /* height: 250px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+#playlist-container iframe {
+    /* max-height: 300px; */
+    background: transparent;
+    /* margin-bottom: -90px; */
+}
+
+#back-to-main {
+    display: none;
+    background-color: #546b82;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    width: 50px;
+    text-align: center;
+    /* margin-top: 20px; */
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+
+#back-to-main:hover {
+    opacity: 0.9;
+}
+
+/*  to make the code responsive */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .ToDoMusic {
+        display: flex;
+        /* flex-flow: row wrap; */
+        padding: 1rem 0.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .media-wrapper {
+        width: 49%;
+        margin-top: 7%;
+        margin-left: 2%;
+    }
+
+    .media-wrapper .media-tabs {
+        width: 100%;
+        /* height: 100%; */
+    }
+
+    .media-wrapper .media-tabs #spotify-tab {
+        padding: 4px 25px 5px 30px;
+        height: 50px;
+    }
+
+    .media-wrapper .media-tabs #radio-tab {
+        padding: 4px 25px 5px 30px;
+        height: 50px;
+    }
+
+    .media-wrapper .spot-content {
+        max-height: 292px;
+        /* width: 270px; */
+        background: rgba(84, 106, 123, 0.4);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        /* max-height: 500px; */
+        /* width: 315px; */
+        padding: 20px 2px 20px 20px;
+    }
+
+    .spot-content .playlist-btn {
+        width: 90px !important;
+        height: 140px !important;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        margin-right: 13px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ToDoMusic {
+        display: flex;
+        padding: 2rem 6.5rem;
+        margin-top: 75%;
+    }
+
+    .media-wrapper {
+        border-radius: 0px;
+        margin-left: -94px;
+        margin-bottom: -34px;
+    }
+
+    .media-wrapper .media-tabs {
+        width: 360px;
+        height: 50px;
+    }
+
+    .media-wrapper .media-tabs #spotify-tab {
+        padding: 4px 10px 5px 15px;
+        height: 50px;
+    }
+
+    .media-wrapper .media-tabs #radio-tab {
+        padding: 4px 10px 5px 15px;
+        height: 50px;
+        border-radius: 0px;
+        margin-left: -4px;
+    }
+
+    .media-wrapper .spot-content {
+        max-height: 375px;
+        width: 360px;
+        padding: 10px 10px 10px 10px;
+        background: rgba(84, 106, 123, 0.4);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .playlist-btn {
+        width: 100px;
+        height: 150px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-right: 4px;
+    }
+}
+
+/* END Spotify Div */
+
+/* END ToDo - music Section */
+
+/* START News Section */
+a:hover {
+    text-decoration: none;
+}
+
+/* Start News Section */
+/* .newsSection {
+    padding: 2rem 6.5rem;
+} */
+
+.newsSection .container {
+    margin: 60px auto auto;
+    background-color: #546a7b2e;
+    padding: 0px;
+    border-radius: 8px;
+    /* max-width: 1312px; */
+}
+
+.newsSection .container .newsNav {
+    background-color: #666a8633;
+    border-radius: 9px;
+    padding: 5px 2px 5px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* News - Heading (h5) */
+.newsSection .container .newsNav .lastestNews {
+    color: #E5ECE9 !important;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+/* Remove the down arrow */
+.dropdown-toggle::after {
+    content: none;
+}
+
+/* News - Dropdown */
+.btn-secondary {
+    background-color: #666a8600;
+    border-color: #666a8600;
+    color: #ffffffad;
+}
+
+.btn-secondary:hover {
+    background-color: #666a8600;
+    border-color: #666a8600;
+    color: #ffffffad;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show>.btn-secondary.dropdown-toggle {
+    background-color: #666a8600;
+    border-color: #666a8600;
+    color: #ffffffad;
+}
+
+/* News - Dropdown category menu */
+.newsSection .container .newsNav .dropdown .dropdown-menu {
+    background-color: #253141;
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-left: -116px;
+}
+
+.newsSection .container .newsNav .dropdown .dropdown-menu .dropdown-item {
+    color: #fff;
+    outline: none;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+
+.newsSection .container .newsNav .dropdown .dropdown-menu .dropdown-item:hover {
+    color: #fff;
+    background-color: #666a8633;
+    border-left-color: #fff;
+    border-right-color: #fff;
+}
+
+/* Start News Display */
+#newsdisplay {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 5px 2px 5px 5px;
+    height: 639px;
+    overflow: auto;
+    justify-content: center;
+}
+
+/* Srcoll in the div newsDisplay */
+#newsdisplay::-webkit-scrollbar {
+    width: 6px;
+}
+
+#newsdisplay::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#newsdisplay::-webkit-scrollbar-thumb {
+    background-color: #ffffff3f;
+    border-radius: 100px;
+}
+
+/* Start news Cards */
+#newsdisplay .newsCards,
+.newsCard {
+    display: flex;
+    flex-flow: row wrap;
+    /* inline section */
+}
+
+/* The bigger news */
+#newsdisplay .newsCard {
+    width: 50%;
+}
+
+#newsdisplay .newsCard img {
+    width: 99%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 9px #071420;
+}
+
+#newsdisplay .newsCard .newsTitle {
+    max-width: 540px;
+    height: 145px;
+    color: #fff;
+    margin: -106px -15px -28px 13px;
+}
+
+#newsdisplay .newsCard .newsTitle .newsTitleH4 {
+    font-weight: bold;
+}
+
+#newsdisplay .newsCard .newsTitle .newsTitleP {
+    max-width: 520px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #ffffffd0;
+}
+
+/* The small news */
+#newsdisplay .newsCards {
+    width: 25%;
+}
+
+#newsdisplay .newsCards img {
+    width: 98%;
+    border-radius: 10px;
+}
+
+#newsdisplay .newsCards .newsTitle {
+    color: #fff;
+    margin: 10px 6px 0 13px;
+}
+
+#newsdisplay .newsCards .newsTitle .newsTitleH5 {
+    font-weight: bold;
+    text-align: center;
+}
+
+#newsdisplay .newsCards .newsTitle .newsTitleP {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ffffffa9;
+    font-size: 12px;
+}
+
+/* START of the Responsive part */
+
+/* Media queries for Mobile screens */
+@media screen and (max-width: 767px) {
+    .newsSection {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .newsSection .container {
+        width: 365px;
+    }
+
+    .newsSection .container .newsNav .dropdown .dropdown-menu {
+        background-color: #253141;
+        margin-top: 8px !important;
+        margin-left: -110px !important;
+    }
+
+    /* Start newsDisplay */
+    #newsdisplay {
+        height: 357px;
+    }
+
+    /* The bigger news */
+    #newsdisplay .newsCard {
+        width: 100%;
+    }
+
+    #newsdisplay .newsCard .newsTitle {
+        height: 130px;
+        margin: -85px 17px -28px 13px;
+    }
+
+    #newsdisplay .newsCard .newsTitle .newsTitleH4 {
+        font-size: 16px;
+    }
+
+    #newsdisplay .newsCard .newsTitle .newsTitleP {
+        max-width: 220px;
+    }
+
+    /* The small news */
+    #newsdisplay .newsCards {
+        width: 50%;
+    }
+
+    #newsdisplay .newsCards .newsTitle .newsTitleH5 {
+        font-size: 16px;
+    }
+
+    #newsdisplay .newsCards .newsTitle .newsTitleP {
+        height: 73px;
+    }
+}
+
+/* End of mobile screen */
+
+/* Media queries for Tablets screens */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .newsSection .container .newsNav .dropdown .dropdown-menu {
+        background-color: #253141;
+        margin-top: 8px !important;
+        margin-left: -115px !important;
+        transform: translate3d(4px, 50px, 0px) !important;
+    }
+
+    /* Start newsDisplay */
+    #newsdisplay {
+        height: 400px;
+    }
+
+    /* The bigger news */
+    #newsdisplay .newsCard {
+        width: 50%;
+    }
+
+    #newsdisplay .newsCard .newsTitle {
+        height: 130px;
+        margin: -85px 17px -28px 13px;
+    }
+
+    #newsdisplay .newsCard .newsTitle .newsTitleH4 {
+        font-size: 16px;
+    }
+
+    #newsdisplay .newsCard .newsTitle .newsTitleP {
+        max-width: 220px;
+    }
+
+    /* The small news */
+    #newsdisplay .newsCards {
+        width: 25%;
+    }
+
+    #newsdisplay .newsCards .newsTitle .newsTitleH5 {
+        font-size: 16px;
+    }
+
+    #newsdisplay .newsCards .newsTitle .newsTitleP {
+        height: 35px;
+    }
+}
+
+/* End of Tablets screens */
+
+/* END of the Responsive part */
+
+/* END News Section */
