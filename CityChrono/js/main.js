@@ -361,10 +361,38 @@ async function checkDateTime(lon, lat) {
         document.querySelector(".temp").style.color = "#ffff";
         document.querySelector(".cel").style.color = "#ffff";
         document.querySelector(".status").style.color = "#ffff";
+        //Search
+        document.querySelector(".search_bar button").style.background = "#e8f0fe"
+        document.querySelector(".search_bar button").style.color = "#1a2535"
+        //Body
+        document.querySelector(".body").style.background = "#071420";
+        document.querySelector(".headerSection").style.color = "#fff";
+        document.querySelector(".headerSection .material-symbols-outlined").style.color = "#fff";
+        //ToDo
+        document.querySelector(".todo-wrapper header").style.background = "#223241";
+        document.querySelector(".todo-wrapper header .title").style.color = "#fff";
+        document.querySelector(".todo-wrapper header h1").style.color = "#fff";
+        document.querySelector(".todo-wrapper .icon").style.color = "#fff";
+        document.querySelector(".todo-wrapper").style.background = "#263644";
+        document.querySelector(".item").style.background = "#d9d9d966";
+        document.querySelector(".item input[type='text']").style.color = "#fff";
+        document.querySelector(".item input[type='checkbox']").style.border = "2px solid #fff";
+        //spotify
+        document.querySelector(".media-wrapper .media-tabs").style.background = "#223241";
+        document.querySelector(".media-wrapper .material-symbols-outlined").style.color = "#fff";
+        document.getElementById("backIcon").style.color = "#fff";
+        //News
+        document.querySelector(".newsSection .container .newsNav").style.background = "#666a8633";
+        document.querySelector(".newsSection .container").style.background = "#546a7b2e";
+        document.querySelector(".newsSection .container .newsNav .lastestNews").style.color = "#fff";
+        document.querySelector("#newsdisplay .newsCard .newsTitle").style.color = "#fff";
+        document.querySelector("#newsdisplay .newsCards .newsTitle").style.color = "#fff";
+        document.querySelector("#newsdisplay .newsCard .newsTitle .newsTitleP").style.color = "#fff";
+        document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleP").style.color = "#fff";
+        document.querySelector(".btn-secondary").style.color = "#fff";
 
-
-        //morning
-    } else {
+        
+    } else { //morning
         document.querySelector(".timpsec").style.background = "#BDCDD6";
         document.querySelector(".time").style.background = "#93BFCF";
         document.querySelector(".time").style.boxShadow = "1px 1px 2px 2px #b9b7b7";
@@ -382,9 +410,12 @@ async function checkDateTime(lon, lat) {
         document.querySelector(".temp").style.color = "#062232";
         document.querySelector(".cel").style.color = "#062232";
         document.querySelector(".status").style.color = "#062232";
-
+        //Search
+        document.querySelector(".search_bar button").style.background = "#e8f0fe"
+        document.querySelector(".search_bar button").style.color = "#1a2535"
         //Body
         document.querySelector(".body").style.background = "#93bfcf7d";
+        document.querySelector(".body").style.color = "000";
         document.querySelector(".headerSection").style.color = "#000";
         document.querySelector(".headerSection .material-symbols-outlined").style.color = "#000000bd";
         //ToDo
@@ -393,22 +424,22 @@ async function checkDateTime(lon, lat) {
         document.querySelector(".todo-wrapper header h1").style.color = "#000";
         document.querySelector(".todo-wrapper .icon").style.color = "#000";
         document.querySelector(".todo-wrapper").style.background = "#93bfcf4d";
+        document.querySelector(".item").style.background = "#93bfcf";
         document.querySelector(".item input[type='text']").style.color = "#000";
         document.querySelector(".item input[type='checkbox']").style.border = "2px solid #000";
         //spotify
         document.querySelector(".media-wrapper .media-tabs").style.background = "#93BFCF";
         document.querySelector(".media-wrapper .material-symbols-outlined").style.color = "#000";
-
-        document.querySelector(".media-wrapper .spot-content").style.background = "#93bfcf4d";
-        document.querySelector("#back-to-main").style.background = "#93BFCF";
+        document.getElementById("backIcon").style.color = "#000";
         //News
         document.querySelector(".newsSection .container .newsNav").style.background = "#93BFCF";
         document.querySelector(".newsSection .container").style.background = "#93bfcf4d";
-        document.querySelector("#newsdisplay .newsCard .newsTitle").style.color = "#000";
-        document.querySelector("#newsdisplay .newsCards .newsTitle").style.color = "#000";
+        document.querySelector(".newsSection .container .newsNav .lastestNews").style.color = "#000";
+        document.querySelector("#newsdisplay .newsCard .newsTitle .newsTitleH4").style.color = "#000";
+        document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleH5").style.color = "#000";
         document.querySelector("#newsdisplay .newsCard .newsTitle .newsTitleP").style.color = "#000";
-        document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleP").style.color = "#000";
-
+        document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleP").style.color = "#000 !important";
+        document.querySelector(".btn-secondary").style.color = "#000";
 
     }
     //END Background & Color Theam
