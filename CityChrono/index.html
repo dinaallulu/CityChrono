@@ -14,6 +14,8 @@
     <!-- Fonts Awesome icons Link -->
     <script src="https://kit.fontawesome.com/eda60b0009.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Font Family api -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
     <!-- CSS file Link -->
     <link rel="stylesheet" href="css/style.css" />
     <title>CityChrono</title>
@@ -33,7 +35,7 @@
     <section class="search_box">
         <div class="content">
             <form action="" method="get" class="search_bar" id="searchForm">
-                <input type="text" id="searchInput" placeholder="search city ?" />
+                <input type="text" id="searchInput" placeholder="search city ?" class="BGfeature colorFont" />
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -45,22 +47,22 @@
         <!-- contain the time and weather boxes -->
         <div class="container">
             <!-- time box 1 -->
-            <div class="time">
+            <div class="time BGfeature">
                 <div class="icon_line">
-                    <div class="iconOfTime"><i class="far fa-clock"></i></div>
+                    <div class="iconOfTime colorFont"><i class="far fa-clock"></i></div>
                     <div class="verticalLine"></div>
                 </div>
-                <div class="detailsTime">
+                <div class="detailsTime colorFont">
                     <p class="city">City</p>
                     <p class="currentTimeInHour">00:</p>
                     <p class="currentTimeInMin">00</p>
                 </div>
-                <div class="statusTime">AM</div>
+                <div class="statusTime colorFont">AM</div>
             </div>
 
             <!-- weather box 2 -->
-            <div class="weather">
-                <div class="details">
+            <div class="weather BGfeature">
+                <div class="details colorFont">
                     <p class="day">Day, </p>
                     <p class="date_month"> M</p>
                     <p class="date_num"> 00 </p>
@@ -84,15 +86,15 @@
             <!-- START To-Do-List Div -->
             <div class="wrap">
                 <!-- start of the to do block -->
-                <div class="todo-wrapper">
+                <div class="todo-wrapper innerBG">
                     <!-- the sart of the header section of the to dolist -->
-                    <header>
-                        <div class="title">
+                    <header class="BGfeature colorFont">
+                        <div class="title colorFont">
                             <span class="material-symbols-outlined">event_list</span>
-                            <h1>To Do List</h1>
+                            <h1 class="colorFont">To Do List</h1>
                         </div>
                         <!-- adding a new task -->
-                        <button id="create">
+                        <button id="create" class="colorFont">
                             <span class="material-symbols-outlined icon">add</span>
                         </button>
                     </header>
@@ -122,7 +124,7 @@
             <!-- the media features  -->
             <div class="media-wrapper">
                 <!-- START Nav Spotify & Radio Div -->
-                <nav class="media-tabs">
+                <nav class="media-tabs  BGfeature">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="spotify-tab" data-toggle="tab" data-target="#spotify" type="button" role="tab" aria-controls="spotify" aria-selected="true">
@@ -145,7 +147,7 @@
                 <!-- START Spotify Div -->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="spotify" role="tabpanel" aria-labelledby="spotify-tab">
-                        <div class="spot-content">
+                        <div class="spot-content innerBG">
                             <button id="show-playlist1">
                                 <img src="img/optimal focus pic.PNG" alt="" class="playlist-btn" />
                             </button>
@@ -234,20 +236,19 @@
 
     <!-- START News Section -->
     <section class="newsSection">
-        <div class="container">
-            <div class="newsNav">
+        <div class="container innerBG">
+            <div class="newsNav BGfeature">
                 <a href="index.html">
-                    <h5 class="lastestNews">News</h5>
+                    <h5 class="lastestNews colorFont">News</h5>
                 </a>
                 <!-- Start dropdown category -->
                 <div class="dropdown">
                     <!-- icon category menu -->
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        <span class="material-symbols-outlined"> filter_list </span>
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <span class="material-symbols-outlined colorFont"> filter_list </span>
                     </a>
                     <!-- Start dropdown category menu -->
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu BGfeature">
                         <a class="dropdown-item" onclick="Search('general')" href="#all" id="all">All news</a>
                         <a class="dropdown-item" onclick="Search('business')" href="#business" id="business">Business</a>
                         <a class="dropdown-item" onclick="Search('technology')" href="#technology" id="technology">Technology</a>
@@ -271,17 +272,14 @@
     <!-- END News Section -->
 
     <!-- START Footer Section -->
-    <footer class="footer">
+    <footer class="footer BGfeature">
         <div class="container">
             <div class="textFooter">
-                <p>This project to help us <b>pass</b> in ECOM4424</p>
+                <p>This project was created to help us <b>pass</b> ECOM 4424</p>
             </div>
             <div class="emailFooter">
-                <a href="mailto:example@example.com" class="aFooter">
-                    <p>Any feedback?</p>
-                    <span class="material-symbols-outlined">
-                        mail
-                    </span>
+                <a href="mailto:citychronofeedback@gmail.com" class="aFooter">
+                    Any feedback?
                 </a>
             </div>
         </div>
