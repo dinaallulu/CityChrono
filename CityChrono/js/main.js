@@ -1,5 +1,6 @@
+// START ToDO & Spotify & Radio Section
+
 // START To-Do-List Div
-// in the name of allah
 const list_el = document.getElementById("list");
 const create_btn_el = document.getElementById("create");
 
@@ -26,7 +27,13 @@ create_btn_el.addEventListener('click', CreateNewTodo);
 
 //     save(); //this will save our data to the local storage
 // }
+
 function CreateNewTodo() {
+    // check the number of tasks if its 50 
+    if (todos.length >= 50) {
+        alert("You have reached the maximum number of tasks.");
+        return;
+    }
     // a new Todo object
     const item = {
         id: new Date().getTime(),
@@ -48,7 +55,6 @@ function CreateNewTodo() {
 
     save(); //this will save our data to the local storage
 }
-
 
 // start of Create Rodo Element function
 function CreateTodoElement(item) {
@@ -157,6 +163,20 @@ function load() {
         todos = JSON.parse(data);
     }
 }
+
+const items = document.querySelectorAll('.item');
+
+items.forEach(item => {
+    const input = item.querySelector('input[type="text"]');
+    input.style.appearance = 'none';
+    input.style.background = 'none';
+    input.style.border = 'none';
+    input.style.outline = 'none';
+    input.style.fontWeight = '700';
+    input.style.fontSize = '16px';
+    input.style.color = '#E5ECE9';
+    input.style.flex = '1 1 0%';
+});
 // END To-Do-List Div
 
 // START Spotify Div 
@@ -211,12 +231,18 @@ backToMainButton.addEventListener("click", backToMain);
 
 // END Spotify Div
 
+// START Radio Div
+
+// END Radio Div
+
+// END ToDO & Spotify & Radio Section
+
 // START News Section
 const API_KEY = "6a48f4f797c8464498e112e7628e2c8b"
 const URL = "https://newsapi.org/v2/everything?q="
 
 async function fetchData(query) {
-    const res = await fetch(`${URL}${query}&apiKey=${API_KEY}`) //&category=${category}
+    const res = await fetch(`${URL}${query}&apiKey=${API_KEY}`)
     const data = await res.json()
     return data
 }
@@ -260,7 +286,7 @@ function renderMain(arr) {
     document.getElementById("newsdisplay").innerHTML = newsdisplayHTML
 }
 
-
+// Search Section
 const searchBtn = document.getElementById("searchForm")
 const searchInput = document.getElementById("searchInput")
 
@@ -311,6 +337,9 @@ async function Search(query) {
     else if (data.weather[0].main == "Snow") {
         weatherImg.src = "image/snow.png";
     }
+    // else if (data.weather[0].main == "fog") {
+    //     weatherImg.src = "image/fog.png";
+    // }
 
     checkDateTime(data["coord"]["lon"], data["coord"]["lat"]);
 }
@@ -362,8 +391,11 @@ async function checkDateTime(lon, lat) {
         document.querySelector(".cel").style.color = "#ffff";
         document.querySelector(".status").style.color = "#ffff";
         //Search
-        document.querySelector(".search_bar button").style.background = "#e8f0fe"
-        document.querySelector(".search_bar button").style.color = "#1a2535"
+        document.querySelector(".search_bar button").style.background = "##223241"
+        document.querySelector(".search_bar button").style.color = "#cac7ca"
+        document.querySelector(".search_bar input").style.boxShadow = "rgb(0 0 0) 1px 4px 11px -1px, rgb(71 61 61 / 61%) 0px 3px 7px -3px"
+        document.querySelector(".search_bar input").style.background = "#666a8633"
+        document.querySelector(".search_bar input").style.color = "#cac7ca"
         //Body
         document.querySelector(".body").style.background = "#071420";
         document.querySelector(".headerSection").style.color = "#fff";
@@ -380,6 +412,7 @@ async function checkDateTime(lon, lat) {
         //spotify
         document.querySelector(".media-wrapper .media-tabs").style.background = "#223241";
         document.querySelector(".media-wrapper .material-symbols-outlined").style.color = "#fff";
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#E5ECE9");
         document.getElementById("backIcon").style.color = "#fff";
         //News
         document.querySelector(".newsSection .container .newsNav").style.background = "#666a8633";
@@ -391,7 +424,7 @@ async function checkDateTime(lon, lat) {
         document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleP").style.color = "#fff";
         document.querySelector(".btn-secondary").style.color = "#fff";
 
-        
+
     } else { //morning
         document.querySelector(".timpsec").style.background = "#BDCDD6";
         document.querySelector(".time").style.background = "#93BFCF";
@@ -411,36 +444,101 @@ async function checkDateTime(lon, lat) {
         document.querySelector(".cel").style.color = "#062232";
         document.querySelector(".status").style.color = "#062232";
         //Search
-        document.querySelector(".search_bar button").style.background = "#e8f0fe"
+        document.querySelector(".search_bar button").style.background = "transparent"
         document.querySelector(".search_bar button").style.color = "#1a2535"
+        document.querySelector(".search_bar input").style.background = "#93bfcf"
+        document.querySelector(".search_bar input").style.color = "#062232"
+        document.querySelector(".search_bar input").style.boxShadow = "rgb(147 191 207) 1px 4px 11px -1px, rgb(147 191 207) 0px 3px 7px -3px"
+
         //Body
         document.querySelector(".body").style.background = "#93bfcf7d";
-        document.querySelector(".body").style.color = "000";
-        document.querySelector(".headerSection").style.color = "#000";
+        document.querySelector(".body").style.color = "#062232";
+        document.querySelector(".headerSection").style.color = "#062232";
         document.querySelector(".headerSection .material-symbols-outlined").style.color = "#000000bd";
         //ToDo
         document.querySelector(".todo-wrapper header").style.background = "#93BFCF";
-        document.querySelector(".todo-wrapper header .title").style.color = "#000";
-        document.querySelector(".todo-wrapper header h1").style.color = "#000";
-        document.querySelector(".todo-wrapper .icon").style.color = "#000";
+        document.querySelector(".todo-wrapper header .title").style.color = "#062232";
+        document.querySelector(".todo-wrapper header h1").style.color = "#062232";
+        document.querySelector(".todo-wrapper .icon").style.color = "#062232";
         document.querySelector(".todo-wrapper").style.background = "#93bfcf4d";
         document.querySelector(".item").style.background = "#93bfcf";
-        document.querySelector(".item input[type='text']").style.color = "#000";
-        document.querySelector(".item input[type='checkbox']").style.border = "2px solid #000";
+        document.querySelector(".item input[type='text']").style.color = "#062232";
+        document.querySelector(".item input[type='checkbox']").style.border = "2px solid #062232";
+
+        items.forEach(item => {
+            const input = item.querySelector('input[type="text"]');
+            input.style.fontSize = '16px';
+            input.style.color = '#000';
+            // input.style.flex = '1 1 0%';
+        });
+
+        const checkboxInputs = document.querySelectorAll('.item input[type="checkbox"]');
+        checkboxInputs.forEach(input => {
+            input.style.border = "2px solid #000";
+            input.addEventListener('change', function () {
+                if (this.checked) {
+                    this.style.backgroundColor = "#062232";
+                    this.style.borderColor = "#062232";
+                    this.style.position = "relative";
+                } else {
+                    this.style.backgroundColor = "";
+                    this.style.borderColor = "#062232";
+                    this.style.position = "";
+                }
+            });
+        });
+
+        const completedItems = document.querySelectorAll('.item.complete input[type="text"]');
+
+        for (let i = 0; i < completedItems.length; i++) {
+            completedItems[i].style.textDecoration = "line-through";
+            completedItems[i].style.textDecorationThickness = "2px";
+            completedItems[i].style.textDecorationColor = "#062232";
+            completedItems[i].style.textDecorationStyle = "solid";
+        }
+
+
+        const checkedCheckboxInputs = document.querySelectorAll('.item input[type="checkbox"]:checked');
+        checkedCheckboxInputs.forEach(input => {
+            input.style.backgroundColor = "#062232";
+            input.style.borderColor = "#062232";
+            input.style.position = "relative";
+        });
+
+        const checkedCheckboxInputBefore = document.querySelectorAll('.item input[type="checkbox"]:checked::before');
+        checkedCheckboxInputBefore.forEach(input => {
+            input.style.content = "'\\2713'";
+            input.style.fontSize = "18px";
+            input.style.fontWeight = "900";
+            // input.style.color = "#E5ECE9";
+            input.style.position = "absolute";
+            input.style.top = "50%";
+            input.style.left = "50%";
+            input.style.transform = "translate(-50%, -50%)";
+        });
+
         //spotify
         document.querySelector(".media-wrapper .media-tabs").style.background = "#93BFCF";
-        document.querySelector(".media-wrapper .material-symbols-outlined").style.color = "#000";
-        document.getElementById("backIcon").style.color = "#000";
+        document.querySelector(".media-wrapper .media-tabs").style.zIndex = "0";
+        document.querySelector(".media-wrapper .spot-content").style.background = "#b9d6e0";
+        document.querySelector(".media-wrapper .material-symbols-outlined").style.color = "#062232";
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#062232");
+        document.getElementById("backIcon").style.color = "#062232";
         //News
         document.querySelector(".newsSection .container .newsNav").style.background = "#93BFCF";
         document.querySelector(".newsSection .container").style.background = "#93bfcf4d";
-        document.querySelector(".newsSection .container .newsNav .lastestNews").style.color = "#000";
-        document.querySelector("#newsdisplay .newsCard .newsTitle .newsTitleH4").style.color = "#000";
-        document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleH5").style.color = "#000";
-        document.querySelector("#newsdisplay .newsCard .newsTitle .newsTitleP").style.color = "#000";
-        document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleP").style.color = "#000 !important";
-        document.querySelector(".btn-secondary").style.color = "#000";
+        document.querySelector(".newsSection .container .newsNav .dropdown .dropdown-menu").style.background = "#93bfcf";
+        document.querySelector(".newsSection .container .newsNav .lastestNews").style.color = "#062232";
+        document.querySelectorAll(".newsSection .container .newsNav .dropdown .dropdown-menu .dropdown-item").forEach(el => el.style.color = "#062232");
+        document.querySelectorAll("#newsdisplay .newsCard .newsTitle .newsTitleH4").forEach(el => el.style.color = "#fff");
+        document.querySelectorAll("#newsdisplay .newsCard .newsTitle .newsTitleP").forEach(el => el.style.color = "#fff");
+        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5").forEach(el => el.style.color = "#062232");
+        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#062232");
+        document.querySelector(".btn-secondary").style.color = "#062232";
 
+        //Footer
+        document.querySelector(".footer").style.background = "#93bfcf4d";
+        document.querySelector("footer .container .aFooter").style.color = "#062232";
     }
     //END Background & Color Theam
 }
