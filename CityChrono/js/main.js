@@ -260,7 +260,7 @@ function renderMain(arr) {
                     <a class="newsDetails" href=${arr[i].url} target="_blank">
                     <img src=${arr[i].urlToImage} alt="">
                     <div class="overlay"></div>
-                    <div class="newsTitle">
+                    <div class="newsTitle colorFont">
                         <h4 class="newsTitleH4">${arr[i].title}</h4>
                         <p class="newsTitleP">${arr[i].description}</p>
                     </div>
@@ -272,7 +272,7 @@ function renderMain(arr) {
                 <div class="newsCards">
                     <a class="newsDetails" href=${arr[i].url} target="_blank">
                     <img src=${arr[i].urlToImage} alt="">
-                    <div class="newsTitle">
+                    <div class="newsTitle colorFont">
                         <h5 class="newsTitleH5">${arr[i].title}</h5>
                         <p class="newsTitleP">${arr[i].description}</p>
                     </div>
@@ -373,95 +373,98 @@ async function checkDateTime(lon, lat) {
     let time2 = data["date"] + ' 07:00';
     //night
     if (data["date_time"] > time1 || data["date_time"] < time2) {
-        document.querySelector(".timpsec").style.background = "#071420";
-        document.querySelector(".time").style.background = "#546a7e59";
-        document.querySelector(".time").style.boxShadow = "1px 1px 2px 2px #00000073";
-        document.querySelector(".weather").style.background = "#546a7e59";
-        document.querySelector(".weather").style.boxShadow = "1px 1px 2px 2px #00000073";
-        document.querySelector(".iconOfTime").style.color = "rgba(229, 236, 233, 0.4)";
-        document.querySelector(".verticalLine").style.background = "rgba(229, 236, 233, 0.4)";
-        document.querySelector(".city").style.color = "#ffff";
-        document.querySelector(".currentTimeInHour").style.color = "#ffff";
-        document.querySelector(".currentTimeInMin").style.color = "#ffff";
-        document.querySelector(".statusTime").style.color = "rgba(229, 236, 233, 0.6)";
-        document.querySelector(".day").style.color = "#ffff";
-        document.querySelector(".date_month").style.color = "#ffff";
-        document.querySelector(".date_num").style.color = "#ffff";
-        document.querySelector(".temp").style.color = "#ffff";
-        document.querySelector(".cel").style.color = "#ffff";
-        document.querySelector(".status").style.color = "#ffff";
-        //Search
-        document.querySelector(".search_bar button").style.background = "##223241"
-        document.querySelector(".search_bar button").style.color = "#cac7ca"
-        document.querySelector(".search_bar input").style.boxShadow = "rgb(0 0 0) 1px 4px 11px -1px, rgb(71 61 61 / 61%) 0px 3px 7px -3px"
-        document.querySelector(".search_bar input").style.background = "#666a8633"
-        document.querySelector(".search_bar input").style.color = "#cac7ca"
         //Body
         document.querySelector(".body").style.background = "#071420";
-        document.querySelector(".headerSection").style.color = "#fff";
-        document.querySelector(".headerSection .material-symbols-outlined").style.color = "#fff";
+        document.querySelectorAll(".body, .headerSection, .textFooter, .aFooter").forEach(el => el.style.color = "#fff");
+        document.querySelector(".headerSection .material-symbols-outlined").style.color = "#ffffffd4";
+
+        //BackGround Feature
+        document.querySelectorAll(".BGfeature").forEach(el => el.style.background = "#253141");
+        document.querySelectorAll(".innerBG").forEach(el => el.style.background = "#546a7b66");
+
+        //Color Font
+        document.querySelectorAll(".colorFont").forEach(el => el.style.color = "#fff");
+
         //ToDo
-        document.querySelector(".todo-wrapper header").style.background = "#223241";
-        document.querySelector(".todo-wrapper header .title").style.color = "#fff";
-        document.querySelector(".todo-wrapper header h1").style.color = "#fff";
-        document.querySelector(".todo-wrapper .icon").style.color = "#fff";
-        document.querySelector(".todo-wrapper").style.background = "#263644";
-        document.querySelector(".item").style.background = "#d9d9d966";
+        document.querySelectorAll(".item").forEach(el => el.style.background = "#546a7e59");
         document.querySelector(".item input[type='text']").style.color = "#fff";
         document.querySelector(".item input[type='checkbox']").style.border = "2px solid #fff";
-        //spotify
-        document.querySelector(".media-wrapper .media-tabs").style.background = "#223241";
-        document.querySelector(".media-wrapper .material-symbols-outlined").style.color = "#fff";
-        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#E5ECE9");
-        document.getElementById("backIcon").style.color = "#fff";
+
+        items.forEach(item => {
+            const input = item.querySelector('input[type="text"]');
+            input.style.fontSize = '16px';
+            input.style.color = '#fff';
+        });
+
+        const checkboxInputs = document.querySelectorAll('.item input[type="checkbox"]');
+        checkboxInputs.forEach(input => {
+            input.style.border = "2px solid #fff";
+            input.addEventListener('change', function () {
+                if (this.checked) {
+                    this.style.backgroundColor = "#fff";
+                    this.style.borderColor = "#fff";
+                    this.style.position = "relative";
+                } else {
+                    this.style.backgroundColor = "";
+                    this.style.borderColor = "#fff";
+                    this.style.position = "";
+                }
+            });
+        });
+
+        const completedItems = document.querySelectorAll('.item.complete input[type="text"]');
+
+        for (let i = 0; i < completedItems.length; i++) {
+            completedItems[i].style.textDecoration = "line-through";
+            completedItems[i].style.textDecorationThickness = "2px";
+            completedItems[i].style.textDecorationColor = "#fff";
+            completedItems[i].style.textDecorationStyle = "solid";
+        }
+
+
+        const checkedCheckboxInputs = document.querySelectorAll('.item input[type="checkbox"]:checked');
+        checkedCheckboxInputs.forEach(input => {
+            input.style.backgroundColor = "#fff";
+            input.style.borderColor = "#fff";
+            input.style.position = "relative";
+        });
+
+        const checkedCheckboxInputBefore = document.querySelectorAll('.item input[type="checkbox"]:checked::before');
+        checkedCheckboxInputBefore.forEach(input => {
+            input.style.content = "'\\2713'";
+            input.style.fontSize = "18px";
+            input.style.fontWeight = "900";
+            input.style.position = "absolute";
+            input.style.top = "50%";
+            input.style.left = "50%";
+            input.style.transform = "translate(-50%, -50%)";
+        });
+
+        //Spotify
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#fff");
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#fff");
+
         //News
-        document.querySelector(".newsSection .container .newsNav").style.background = "#666a8633";
-        document.querySelector(".newsSection .container").style.background = "#546a7b2e";
-        document.querySelector(".newsSection .container .newsNav .lastestNews").style.color = "#fff";
-        document.querySelector("#newsdisplay .newsCard .newsTitle").style.color = "#fff";
-        document.querySelector("#newsdisplay .newsCards .newsTitle").style.color = "#fff";
-        document.querySelector("#newsdisplay .newsCard .newsTitle .newsTitleP").style.color = "#fff";
-        document.querySelector("#newsdisplay .newsCards .newsTitle .newsTitleP").style.color = "#fff";
-        document.querySelector(".btn-secondary").style.color = "#fff";
+        document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#fff");
+        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5, #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#fff");
+    } 
 
-
-    } else { //morning
-        document.querySelector(".timpsec").style.background = "#BDCDD6";
-        document.querySelector(".time").style.background = "#93BFCF";
-        document.querySelector(".time").style.boxShadow = "1px 1px 2px 2px #b9b7b7";
-        document.querySelector(".weather").style.background = "#93BFCF";
-        document.querySelector(".weather").style.boxShadow = "1px 1px 2px 2px #b9b7b7";
-        document.querySelector(".iconOfTime").style.color = "#0000008c";
-        document.querySelector(".verticalLine").style.background = "rgba(229, 236, 233, 0.4)";
-        document.querySelector(".city").style.color = "#062232";
-        document.querySelector(".currentTimeInHour").style.color = "#062232";
-        document.querySelector(".currentTimeInMin").style.color = "#062232";
-        document.querySelector(".statusTime").style.color = "rgba(6, 34, 50, 0.6)";
-        document.querySelector(".day").style.color = "#062232";
-        document.querySelector(".date_month").style.color = "#062232";
-        document.querySelector(".date_num").style.color = "#062232";
-        document.querySelector(".temp").style.color = "#062232";
-        document.querySelector(".cel").style.color = "#062232";
-        document.querySelector(".status").style.color = "#062232";
-        //Search
-        document.querySelector(".search_bar button").style.background = "transparent"
-        document.querySelector(".search_bar button").style.color = "#1a2535"
-        document.querySelector(".search_bar input").style.background = "#93bfcf"
-        document.querySelector(".search_bar input").style.color = "#062232"
-        document.querySelector(".search_bar input").style.boxShadow = "rgb(147 191 207) 1px 4px 11px -1px, rgb(147 191 207) 0px 3px 7px -3px"
-
+    //morning
+    else { 
         //Body
         document.querySelector(".body").style.background = "#93bfcf7d";
-        document.querySelector(".body").style.color = "#062232";
-        document.querySelector(".headerSection").style.color = "#062232";
+        document.querySelectorAll(".body, .headerSection, .textFooter, .aFooter").forEach(el => el.style.color = "#062232");
         document.querySelector(".headerSection .material-symbols-outlined").style.color = "#000000bd";
+
+        //BackGround Feature
+        document.querySelectorAll(".BGfeature").forEach(el => el.style.background = "#93BFCF");
+        document.querySelectorAll(".innerBG").forEach(el => el.style.background = "#93bfcf4d");
+
+        //Color Font
+        document.querySelectorAll(".colorFont").forEach(el => el.style.color = "#062232");
+
         //ToDo
-        document.querySelector(".todo-wrapper header").style.background = "#93BFCF";
-        document.querySelector(".todo-wrapper header .title").style.color = "#062232";
-        document.querySelector(".todo-wrapper header h1").style.color = "#062232";
-        document.querySelector(".todo-wrapper .icon").style.color = "#062232";
-        document.querySelector(".todo-wrapper").style.background = "#93bfcf4d";
-        document.querySelector(".item").style.background = "#93bfcf";
+        document.querySelectorAll(".item").forEach(el => el.style.background = "#93BFCF");
         document.querySelector(".item input[type='text']").style.color = "#062232";
         document.querySelector(".item input[type='checkbox']").style.border = "2px solid #062232";
 
@@ -469,7 +472,6 @@ async function checkDateTime(lon, lat) {
             const input = item.querySelector('input[type="text"]');
             input.style.fontSize = '16px';
             input.style.color = '#000';
-            // input.style.flex = '1 1 0%';
         });
 
         const checkboxInputs = document.querySelectorAll('.item input[type="checkbox"]');
@@ -510,35 +512,19 @@ async function checkDateTime(lon, lat) {
             input.style.content = "'\\2713'";
             input.style.fontSize = "18px";
             input.style.fontWeight = "900";
-            // input.style.color = "#E5ECE9";
             input.style.position = "absolute";
             input.style.top = "50%";
             input.style.left = "50%";
             input.style.transform = "translate(-50%, -50%)";
         });
 
-        //spotify
-        document.querySelector(".media-wrapper .media-tabs").style.background = "#93BFCF";
-        document.querySelector(".media-wrapper .media-tabs").style.zIndex = "0";
-        document.querySelector(".media-wrapper .spot-content").style.background = "#b9d6e0";
-        document.querySelector(".media-wrapper .material-symbols-outlined").style.color = "#062232";
+        //Spotify
         document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#062232");
-        document.getElementById("backIcon").style.color = "#062232";
-        //News
-        document.querySelector(".newsSection .container .newsNav").style.background = "#93BFCF";
-        document.querySelector(".newsSection .container").style.background = "#93bfcf4d";
-        document.querySelector(".newsSection .container .newsNav .dropdown .dropdown-menu").style.background = "#93bfcf";
-        document.querySelector(".newsSection .container .newsNav .lastestNews").style.color = "#062232";
-        document.querySelectorAll(".newsSection .container .newsNav .dropdown .dropdown-menu .dropdown-item").forEach(el => el.style.color = "#062232");
-        document.querySelectorAll("#newsdisplay .newsCard .newsTitle .newsTitleH4").forEach(el => el.style.color = "#fff");
-        document.querySelectorAll("#newsdisplay .newsCard .newsTitle .newsTitleP").forEach(el => el.style.color = "#fff");
-        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5").forEach(el => el.style.color = "#062232");
-        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#062232");
-        document.querySelector(".btn-secondary").style.color = "#062232";
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#062232");
 
-        //Footer
-        document.querySelector(".footer").style.background = "#93bfcf4d";
-        document.querySelector("footer .container .aFooter").style.color = "#062232";
+        //News
+        document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#000");
+        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5, #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#062232");
     }
     //END Background & Color Theam
 }
