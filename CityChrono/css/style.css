@@ -24,13 +24,6 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
-ul,
-li {
-    color: #fff;
-}
-
-
-
 /* BODY */
 
 /* START Header Section */
@@ -1346,6 +1339,11 @@ a:hover {
     /* Start newsDisplay */
     #newsdisplay {
         height: 400px;
+    }
+
+    #newsdisplay ul,#newsdisplay li {
+        color: #fff;
+        display: none;
     }
 
     /* The bigger news */
