@@ -179,6 +179,82 @@ items.forEach(item => {
 });
 // END To-Do-List Div
 
+// START Radio Div
+
+// Set up API endpoint
+const url = 'http://de1.api.radio-browser.info/json/stations/bycountry/canada';
+
+// Keep track of currently playing audio and current station
+let currentAudio = null;
+let currentStation = null;
+
+$.ajax(
+    {
+        contentType: 'application/json',
+        method: 'POST',
+        url: url,
+        data: {
+            countrycode: 'CA'
+        },
+        success: function (data) {
+            for (let i = 0; i < data.length; i++) {
+                const station = data[i];
+                const name = station.name;
+                const url = station.url;
+                const stationElement = createStationElement(name, url);
+                $('#radioList').append(stationElement);
+            }
+        }
+        
+    }
+);
+
+// Function to create station element
+function createStationElement(name, url) {
+    const element = $(`
+    <div class="radioDiv">
+        <button id="buttonRadio" onclick="togglePlay(this, '${url}')">
+            <span class="material-symbols-outlined">
+                slow_motion_video
+            </span>
+        </button>
+        <p class="nameRadio">${name}</p>
+    </div>
+    `);
+    return element;
+}
+
+// Function to toggle play/pause and change icon
+function togglePlay(buttonRadio, url) {
+    // Get audio element for this URL or create a new one
+    let audio = currentAudio;
+    if (!audio || audio.src !== url) {
+        audio = new Audio(url);
+        currentAudio = audio;
+    }
+
+    // Toggle play/pause
+    if (audio.paused) {
+        // Stop any currently playing audio
+        if (currentStation) {
+            currentStation.find('buttonRadio').html('<span class="material-symbols-outlined"> slow_motion_video </span>');
+            if (currentAudio) {
+                currentAudio.pause();
+            }
+        }
+
+        // Play this audio
+        audio.play();
+        buttonRadio.innerHTML = '<span class="material-symbols-outlined"> stop_circle </span>';
+        currentStation = $(buttonRadio).parent();
+    } else {
+        audio.pause();
+        buttonRadio.innerHTML = '<span class="material-symbols-outlined"> slow_motion_video </span>';
+        currentStation = null;
+    }
+}
+// END Radio Div
+
 // START Spotify Div 
 const playlistContainer = document.getElementById("playlist-container");
 const backToMainButton = document.getElementById("back-to-main");
@@ -231,18 +307,14 @@ backToMainButton.addEventListener("click", backToMain);
 
 // END Spotify Div
 
-// START Radio Div
-
-// END Radio Div
-
 // END ToDO & Spotify & Radio Section
 
 // START News Section
 const API_KEY = "6a48f4f797c8464498e112e7628e2c8b"
-const URL = "https://newsapi.org/v2/everything?q="
+const URLNews = "https://newsapi.org/v2/everything?q="
 
 async function fetchData(query) {
-    const res = await fetch(`${URL}${query}&apiKey=${API_KEY}`)
+    const res = await fetch(`${URLNews}${query}&apiKey=${API_KEY}`)
     const data = await res.json()
     return data
 }
@@ -270,11 +342,11 @@ function renderMain(arr) {
             } else {
                 newsdisplayHTML += `
                 <div class="newsCards">
-                    <a class="newsDetails" href=${arr[i].url} target="_blank">
+                    <a class="newsDetails" href=${arr[i].URLNews} target="_blank">
                     <img src=${arr[i].urlToImage} alt="">
                     <div class="newsTitle colorFont">
-                        <h5 class="newsTitleH5">${arr[i].title}</h5>
-                        <p class="newsTitleP">${arr[i].description}</p>
+                        <h5 class="newsTitleH5 colorFont">${arr[i].title}</h5>
+                        <p class="newsTitleP colorFont">${arr[i].description}</p>
                     </div>
                     </a>
                 </div>
@@ -444,6 +516,9 @@ async function checkDateTime(lon, lat) {
         document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#fff");
         document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#fff");
 
+        //Radio
+        document.querySelectorAll(".radioDiv").forEach(el => el.style.borderBottom = "1px solid #cac7ca");
+
         //News
         document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#fff");
         document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5, #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#fff");
@@ -522,9 +597,13 @@ async function checkDateTime(lon, lat) {
         document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#062232");
         document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#062232");
 
+        //Radio
+        document.querySelectorAll(".radioDiv").forEach(el => el.style.borderBottom = "1px solid #062232");
+        onclick.getElementById('buttonRadio').style.color = "#062232";
+
         //News
         document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#000");
-        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5, #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#062232");
+        document.querySelectorAll("#newsdisplay .newsCards .newsTitle , #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#000");
     }
     //END Background & Color Theam
 }
