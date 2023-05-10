@@ -599,7 +599,6 @@ async function checkDateTime(lon, lat) {
 
         //Radio
         document.querySelectorAll(".radioDiv").forEach(el => el.style.borderBottom = "1px solid #062232");
-        onclick.getElementById('buttonRadio').style.color = "#062232";
 
         //News
         document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#000");
