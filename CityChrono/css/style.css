@@ -12,7 +12,7 @@ body {
 
 /* Srcoll in the body */
 body::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
 }
 
 body::-webkit-scrollbar-track {
@@ -20,13 +20,16 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #ffffffd4;
+    background-color: #546b82;
+    border-radius: 10px;
 }
 
 ul,
 li {
     color: #fff;
 }
+
+
 
 /* BODY */
 
@@ -36,8 +39,19 @@ li {
     margin: 20px 10px 5px 25px;
 }
 
+.headerSection .headerLogo {
+    display: flex;
+    color: #fff;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.headerSection h1 {
+    margin-bottom: 0;
+}
+
 .headerSection .material-symbols-outlined {
-    font-size: 40px;
+    font-size: 50px;
     margin-top: 2px;
     margin-right: 10px;
     color: #ffffffd4;
@@ -55,6 +69,7 @@ li {
 
     .headerSection h1 {
         font-size: 30px;
+        margin-bottom: 1px;
     }
 
     .material-symbols-outlined {
@@ -74,6 +89,7 @@ li {
 
     .headerSection h1 {
         font-size: 30px;
+        margin-bottom: 1px;
     }
 
     .material-symbols-outlined {
@@ -881,9 +897,9 @@ svg {
 
 #back-to-main {
     width: 50px;
-    margin-bottom: -5px;
-    margin-top: -13px;
-    margin-left: -24px;
+    margin-bottom: -2px;
+    margin-top: -6px;
+    margin-left: -6px;
 }
 
 #back-to-main:hover {
@@ -988,6 +1004,94 @@ svg {
 /* END Spotify Div */
 
 /* START Radio Div */
+.radio-content .container {
+    position: relative;
+}
+
+.headerRadio {
+    margin: auto;
+}
+
+.headerRadio h1 {
+    font-family: 'Sofia';
+    color: #ffffffeb;
+}
+
+
+.container .disRaddio {
+    display: flex;
+}
+
+.container .disRaddio #radioList .radioDiv {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    border-bottom: 1px solid #cac7ca;
+    box-shadow: inset 0 -13px 10px -16px rgba(0, 0, 0, 0.35);
+    margin-top: 3%;
+}
+
+.container .disRaddio .imgRadio {
+    position: relative;
+}
+
+.container .disRaddio .imgRadio img {
+    width: 77%;
+    margin-left: 15%;
+    margin-top: 20%;
+    border: 10px solid #0714206b;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: sticky;
+    top: 20%;
+}
+
+.container .disRaddio #radioList .radioDiv #buttonRadio {
+    margin-right: 2%;
+}
+/* START of the Responsive part */
+
+/* Media queries for Mobile screens */
+@media screen and (max-width: 767px) {
+    .headerRadio h1 {
+        font-size: 30px;
+    }
+
+    .container .disRaddio .imgRadio {
+        /* position: relative; */
+        display: none;
+    }
+    
+    /* .container .disRaddio .imgRadio img {
+        width: 130%;
+        margin-left: 11%;
+        margin-top: 102%;
+        border: 5px solid #0714206b;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        position: sticky;
+        top: 46%;
+    } */
+}
+/* End of mobile screen */
+
+/* Media queries for Tablets screens */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .headerRadio {
+        margin: 0;
+    }
+
+    .headerRadio h1 {
+        font-size: 30px;
+    }
+
+    .container .disRaddio .imgRadio {
+        /* position: relative; */
+        display: none;
+    }
+}
+/* End of Tablets screens */
+
+/* END of the Responsive part */
 
 /* END Radio Div */
 
