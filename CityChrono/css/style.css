@@ -906,8 +906,8 @@ svg {
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: nowrap;
-        margin-top: 23%;
-        margin-bottom: -8%;
+        margin-top: 22%;
+        margin-bottom: -6%;
     }
 
     .media-wrapper {
@@ -997,12 +997,12 @@ svg {
 /* END Spotify Div */
 
 /* START Radio Div */
-.radio-content .container {
+.radio-content {
     position: relative;
 }
 
 .headerRadio {
-    margin: auto;
+    margin: 20px auto;
 }
 
 .headerRadio h1 {
@@ -1010,37 +1010,45 @@ svg {
     color: #ffffffeb;
 }
 
-
-.container .disRaddio {
-    display: flex;
+.radio-content #radioContainer {
+    position: absolute;
+    margin-top: 40px;
 }
 
-.container .disRaddio #radioList .radioDiv {
+.radio-content #radioControls {
     display: flex;
-    justify-content: flex-start;
     flex-direction: row;
-    align-items: flex-start;
-    border-bottom: 1px solid #cac7ca;
-    box-shadow: inset 0 -13px 10px -16px rgba(0, 0, 0, 0.35);
-    margin-top: 3%;
-}
-
-.container .disRaddio .imgRadio {
-    position: relative;
-}
-
-.container .disRaddio .imgRadio img {
-    width: 77%;
-    margin-left: 15%;
-    margin-top: 20%;
-    border: 10px solid #0714206b;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #071420;
+    border-radius: 13px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    position: sticky;
-    top: 20%;
 }
 
-.container .disRaddio #radioList .radioDiv #buttonRadio {
-    margin-right: 2%;
+.radio-content #radioContainer .imgRadio img {
+    width: 30%;
+    border: 10px solid #071420;
+    box-shadow: rgb(29 59 85) 0px 5px 9px;
+}
+
+.radio-content #radioControls .radioDisplay {
+    margin-top: -79px;
+    margin-left: 50px;
+}
+
+.radioDisplay #currentStationName {
+    margin-top: -20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.radioDisplay button {
+    margin-left: 90px;
+    margin-top: 15px;
+}
+
+.radio-content #radioControls .radioDisplay span {
+    font-size: 35px;
 }
 /* START of the Responsive part */
 
@@ -1050,20 +1058,35 @@ svg {
         font-size: 30px;
     }
 
-    .container .disRaddio .imgRadio {
-        /* position: relative; */
-        display: none;
+    .radio-content #radioContainer {
+        margin-top: 40px;
+        margin-left: 5px;
     }
-    
-    /* .container .disRaddio .imgRadio img {
-        width: 130%;
-        margin-left: 11%;
-        margin-top: 102%;
-        border: 5px solid #0714206b;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        position: sticky;
-        top: 46%;
-    } */
+
+    .radio-content #radioControls .radioDisplay {
+        margin-top: -79px;
+        margin-left: 60px;
+    }
+
+    .radioDisplay #currentStationName {
+        margin-top: 0px;
+        font-size: 19px;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 140px;
+        margin-left: 40px;
+    }
+
+    .radioDisplay button {
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+
+    .radio-content #radioControls .radioDisplay span {
+        font-size: 30px;
+    }
 }
 /* End of mobile screen */
 
@@ -1077,9 +1100,29 @@ svg {
         font-size: 30px;
     }
 
-    .container .disRaddio .imgRadio {
-        /* position: relative; */
-        display: none;
+    .radio-content #radioContainer {
+        margin-top: 50px;
+        margin-left: -14px;
+    }
+
+    .radioDisplay #currentStationName {
+        margin-top: 5px;
+        font-size: 20px;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 140px;
+        margin-left: 40px;
+    }
+
+    .radioDisplay button {
+        margin-left: 40px;
+        margin-top: 9px;
+    }
+
+    .radio-content #radioControls .radioDisplay span {
+        font-size: 30px;
     }
 }
 /* End of Tablets screens */
