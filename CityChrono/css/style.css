@@ -1008,6 +1008,7 @@ svg {
 .headerRadio h1 {
     font-family: 'Sofia';
     color: #ffffffeb;
+    font-size 24px;
 }
 
 .radio-content #radioContainer {
