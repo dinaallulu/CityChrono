@@ -180,78 +180,121 @@ items.forEach(item => {
 // END To-Do-List Div
 
 // START Radio Div
-
 // Set up API endpoint
-const url = 'http://de1.api.radio-browser.info/json/stations/bycountry/canada';
+const url = "https://de1.api.radio-browser.info/json/stations/bycountry/canada";
 
 // Keep track of currently playing audio and current station
 let currentAudio = null;
-let currentStation = null;
+let currentStationIndex = 0;
+let stations = [];
 
-$.ajax(
-    {
-        contentType: 'application/json',
-        method: 'POST',
-        url: url,
-        data: {
-            countrycode: 'CA'
-        },
-        success: function (data) {
-            for (let i = 0; i < data.length; i++) {
-                const station = data[i];
-                const name = station.name;
-                const url = station.url;
-                const stationElement = createStationElement(name, url);
-                $('#radioList').append(stationElement);
-            }
+// Make an AJAX request to fetch the stations
+$.ajax({
+    contentType: "application/json",
+    method: "POST",
+    url: url,
+    data: {
+        countrycode: "CA",
+    },
+    success: function (data) {
+        stations = data;
+        for (let i = 0; i < stations.length; i++) {
+            const station = stations[i];
+            const name = station.name;
+            const url = station.url;
+            const stationElement = createStationElement(name, url);
+            $("#radioContainer").append(stationElement);
         }
-        
-    }
-);
+    },
+});
 
 // Function to create station element
 function createStationElement(name, url) {
     const element = $(`
     <div class="radioDiv">
-        <button id="buttonRadio" onclick="togglePlay(this, '${url}')">
-            <span class="material-symbols-outlined">
-                slow_motion_video
-            </span>
-        </button>
-        <p class="nameRadio">${name}</p>
+        <audio src="${url}"></audio>
     </div>
-    `);
+`);
     return element;
 }
 
-// Function to toggle play/pause and change icon
-function togglePlay(buttonRadio, url) {
-    // Get audio element for this URL or create a new one
-    let audio = currentAudio;
-    if (!audio || audio.src !== url) {
-        audio = new Audio(url);
-        currentAudio = audio;
-    }
+function togglePlayPause() {
+    const currentAudioElement = getCurrentAudioElement();
+    const playPauseButton = $("#playPauseButton");
 
-    // Toggle play/pause
-    if (audio.paused) {
-        // Stop any currently playing audio
-        if (currentStation) {
-            currentStation.find('buttonRadio').html('<span class="material-symbols-outlined"> slow_motion_video </span>');
-            if (currentAudio) {
-                currentAudio.pause();
-            }
-        }
-
-        // Play this audio
-        audio.play();
-        buttonRadio.innerHTML = '<span class="material-symbols-outlined"> stop_circle </span>';
-        currentStation = $(buttonRadio).parent();
+    if (currentAudioElement.paused) {
+        playStation(currentStationIndex);
+        playPauseButton.html(
+            '<span class="material-symbols-outlined">pause_circle</span>'
+        );
     } else {
-        audio.pause();
-        buttonRadio.innerHTML = '<span class="material-symbols-outlined"> slow_motion_video </span>';
-        currentStation = null;
+        pauseStation();
+        playPauseButton.html(
+            '<span class="material-symbols-outlined">play_circle</span>'
+        );
     }
+}
+
+// Function to play a station by index
+function playStation(index) {
+    if (index < 0 || index >= stations.length) {
+        return;
+    }
+
+    const currentAudioElement = getCurrentAudioElement();
+    if (currentAudioElement) {
+        currentAudioElement.pause();
+        $("#playButton").show();
+        $("#pauseButton").hide();
+    }
+
+    const stationElement = $(".radioDiv").eq(index);
+    const audioElement = stationElement.find("audio")[0];
+
+    audioElement.play();
+    currentStationIndex = index;
+
+    // Update the currently playing station name
+    const currentStationName = stations[index].name;
+    $("#currentStationName").text(currentStationName);
+
+    // Toggle visibility of play/pause buttons
+    stationElement.find("#playButton").hide();
+    stationElement.find("#pauseButton").show();
+}
+
+// Function to pause the currently playing station
+function pauseStation() {
+    const currentAudioElement = getCurrentAudioElement();
+    if (currentAudioElement) {
+        currentAudioElement.pause();
+        $("#playButton").show();
+        $("#pauseButton").hide();
+    }
+
+    // Toggle visibility of play/pause buttons
+    const stationElement = $(".radioDiv").eq(currentStationIndex);
+    stationElement.find("#playButton").show();
+    stationElement.find("#pauseButton").hide();
+}
+
+// Function to play the previous station
+function playPrevious() {
+    playStation(currentStationIndex - 1);
+}
+
+// Function to play the next station
+function playNext() {
+    playStation(currentStationIndex + 1);
+}
+
+// Function to get the current audio element
+function getCurrentAudioElement() {
+    const currentStationElement = $(".radioDiv").eq(currentStationIndex);
+    if (currentStationElement.length) {
+        return currentStationElement.find("audio")[0];
+    }
+    return null;
 }
 // END Radio Div
 
@@ -517,7 +560,8 @@ async function checkDateTime(lon, lat) {
         document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#fff");
 
         //Radio
-        document.querySelectorAll(".radioDiv").forEach(el => el.style.borderBottom = "1px solid #cac7ca");
+        document.querySelectorAll(".radio-content #radioContainer .imgRadio img").forEach(el => el.style.border = "10px solid #071420");
+        document.querySelector(".radio-content #radioControls").style.background = "#071420";
 
         //News
         document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#fff");
@@ -598,7 +642,7 @@ async function checkDateTime(lon, lat) {
         document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#062232");
 
         //Radio
-        document.querySelectorAll(".radioDiv").forEach(el => el.style.borderBottom = "1px solid #062232");
+        document.querySelectorAll(".radio-content #radioContainer .imgRadio img").forEach(el => el.style.border = "10px solid #93BFCF");
 
         //News
         document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#000");
