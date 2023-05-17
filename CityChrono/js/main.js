@@ -1,62 +1,8 @@
 // START ToDO & Spotify & Radio Section
 
 // START To-Do-List Div
-const list_el = document.getElementById("list");
-const create_btn_el = document.getElementById("create");
 
-// global vriable thatll hold todos info on the screen
-let todos = [];
-
-create_btn_el.addEventListener('click', CreateNewTodo);
-
-// function CreateNewTodo() {
-//     // a new Todo object
-//     const item = {
-//         id: new Date().getTime(),
-//         text: "",
-//         complete: false
-//     }
-//     todos.unshift(item);
-
-//     const { item_el, input_el } = CreateTodoElement(item);
-
-//     list_el.prepend(item_el);
-
-//     input_el.removeAttribute("disabled");
-//     input_el.focus();
-
-//     save(); //this will save our data to the local storage
-// }
-
-function CreateNewTodo() {
-    // check the number of tasks if its 50 
-    if (todos.length >= 50) {
-        alert("You have reached the maximum number of tasks.");
-        return;
-    }
-    // a new Todo object
-    const item = {
-        id: new Date().getTime(),
-        text: "",
-        complete: false
-    }
-    // check if todo already exists in array
-    if (todos.find(todo => todo.id === item.id)) {
-        return;
-    }
-    todos.unshift(item);
-
-    const { item_el, input_el } = CreateTodoElement(item);
-
-    list_el.prepend(item_el);
-
-    input_el.removeAttribute("disabled");
-    input_el.focus();
-
-    save(); //this will save our data to the local storage
-}
-
-// start of Create Rodo Element function
+// start of Create Todo Element function
 function CreateTodoElement(item) {
     const item_el = document.createElement("div");
     item_el.classList.add("item");
@@ -178,7 +124,6 @@ items.forEach(item => {
     input.style.flex = '1 1 0%';
 });
 // END To-Do-List Div
-
 // START Radio Div
 // Set up API endpoint
 const url = "https://de1.api.radio-browser.info/json/stations/bycountry/canada";
