@@ -383,8 +383,7 @@ function renderMain(arr) {
 const searchBtn = document.getElementById("searchForm")
 const searchInput = document.getElementById("searchInput")
 
-const apiurl = "https://api.openweathermap.org/data/2.5/weather?&appid=567973fdab5e69ef7945f272ce1591d2&units=metric&q=";
-const weatherImg = document.querySelector(".weather_img");
+
 
 
 searchBtn.addEventListener("submit", async (e) => {
