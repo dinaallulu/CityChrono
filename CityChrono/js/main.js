@@ -387,7 +387,10 @@ const apiurl = "https://api.openweathermap.org/data/2.5/weather?&appid=567973fda
 const weatherImg = document.querySelector(".weather_img");
 
 
-
+searchBtn.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    Search(searchInput.value)
+    console.log(searchInput.value)
 
     const data = await fetchData(searchInput.value)
     renderMain(data.articles)
