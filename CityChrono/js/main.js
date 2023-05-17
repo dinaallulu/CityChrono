@@ -1,8 +1,36 @@
 // START ToDO & Spotify & Radio Section
 
 // START To-Do-List Div
+// start of Create Todo Element function
+function CreateTodoElement(item) {
+}
+// to make the Tasks when refreshing 
+function DisplayTodos() {
+}
+
+DisplayTodos();
+
+// to remove the removed tasks from the local storage
+function save() {
+}
 
 
+function load() {
+}
+
+const items = document.querySelectorAll('.item');
+
+items.forEach(item => {
+    const input = item.querySelector('input[type="text"]');
+    input.style.appearance = 'none';
+    input.style.background = 'none';
+    input.style.border = 'none';
+    input.style.outline = 'none';
+    input.style.fontWeight = '700';
+    input.style.fontSize = '16px';
+    input.style.color = '#E5ECE9';
+    input.style.flex = '1 1 0%';
+});
 // END To-Do-List Div
 // START Radio Div
 // Set up API endpoint
