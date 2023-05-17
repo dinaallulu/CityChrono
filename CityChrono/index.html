@@ -24,66 +24,6 @@
 </head>
 
 <body class="body">
-    <!-- START Header Section -->
-    <header>
-        <div class="headerSection">
-            <a href="index.html" class="headerLogo colorFont">
-                <span class="material-symbols-outlined" id="imgIcon"> cottage </span>
-                <h1>CityChrono</h1>
-            </a>
-        </div>
-    </header>
-    <!-- END Header Section -->
-
-    <!-- START Search Section -->
-    <section class="search_box">
-        <div class="content">
-            <form action="" method="get" class="search_bar" id="searchForm">
-                <input type="text" id="searchInput" placeholder="search city ?" class="BGfeature colorFont" />
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-    </section>
-    <!-- END Search Section -->
-
-    <!-- START Time & Weather Section -->
-    <section class="timpsec">
-        <!-- contain the time and weather boxes -->
-        <div class="container">
-            <!-- time box 1 -->
-            <div class="time BGfeature">
-                <div class="icon_line">
-                    <div class="iconOfTime colorFont"><i class="far fa-clock"></i></div>
-                    <div class="verticalLine"></div>
-                </div>
-                <div class="detailsTime colorFont">
-                    <p class="city">City</p>
-                    <p class="currentTimeInHour">00:</p>
-                    <p class="currentTimeInMin">00</p>
-                </div>
-                <div class="statusTime colorFont">AM</div>
-            </div>
-
-            <!-- weather box 2 -->
-            <div class="weather BGfeature">
-                <div class="details colorFont">
-                    <p class="day">Day, </p>
-                    <p class="date_month"> M</p>
-                    <p class="date_num"> 00 </p>
-                    <div class="temper">
-                        <p class="temp">00</p>
-                        <div class=cel>°C</div>
-                    </div>
-                    <p class="status">Status</p>
-                </div>
-                <div class="statusPicture">
-                    <img src="image/nightt.png" class="weather_img">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END Time & Temp Section -->
-
     <!-- START ToDo & Spotify & Radio Section -->
     <section class="ToDoMusic">
  <div class="container">
@@ -123,8 +63,6 @@
                 <!-- end of the to do block -->
             </div>
             <!-- END To-Do-List Div -->
-
-
             <!-- the media features  -->
             <div class="media-wrapper">
                 <!-- START Nav Spotify & Radio Div -->
@@ -147,7 +85,6 @@
                     </ul>
                 </nav>
                 <!-- END Nav Spotify & Radio Div -->
-
                 <!-- START Spotify Div -->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="spotify" role="tabpanel" aria-labelledby="spotify-tab">
@@ -227,106 +164,10 @@
                     </div>
                     <!-- END Spotify Div -->
                     <!-- START Radio Div -->
-                    <div class="tab-pane fade" id="radio" role="tabpanel" aria-labelledby="radio-tab">
-                        <div class="spot-content innerBG radio-content">
-                                <div class="headerRadio">
-                                    <h1 class="colorFont">
-<!--                                         <span class="material-symbols-outlined">
-                                            graphic_eq
-                                        </span> -->
-                                        Surf The Tunes Of The City
-<!--                                         <span class="material-symbols-outlined">
-                                            graphic_eq
-                                        </span> -->
-                                    </h1>
-                                </div>
-                                <div id="radioContainer">
-                                    <div id="radioControls" class="BGfeature">
-                                        <div class="imgRadio">
-                                            <img src="img/radio.jfif" alt="" srcset="">
-                                        </div>
-                                        <div class="radioDisplay">
-                                            <div id="currentStationName">Station Name</div>
-                            
-                                            <button id="playPreviousButton" onclick="playPrevious()">
-                                                <span class="material-symbols-outlined">
-                                                    skip_previous
-                                                </span>
-                                            </button>
-                                            <button id="playPauseButton" onclick="togglePlayPause()">
-                                                <span class="material-symbols-outlined">
-                                                    play_circle
-                                                </span>
-                                            </button>
-                                            <button id="playNextButton" onclick="playNext()">
-                                                <span class="material-symbols-outlined">
-                                                    skip_next
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <!-- END Radio Div -->
-                </div>
             </div>
         </div>
     </section>
     <!-- END ToDo & Spotify & Radio Section -->
-
-    <!-- START News Section -->
-    <section class="newsSection">
-        <div class="container innerBG">
-            <div class="newsNav BGfeature">
-                <a href="index.html">
-                    <h5 class="lastestNews colorFont">News</h5>
-                </a>
-                <!-- Start dropdown category -->
-                <div class="dropdown">
-                    <!-- icon category menu -->
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <span class="material-symbols-outlined colorFont"> filter_list </span>
-                    </a>
-                    <!-- Start dropdown category menu -->
-                    <div class="dropdown-menu BGfeature">
-                        <a class="dropdown-item colorFont" onclick="Search('general')" href="#all" id="all">All news</a>
-                        <a class="dropdown-item colorFont" onclick="Search('business')" href="#business" id="business">Business</a>
-                        <a class="dropdown-item colorFont" onclick="Search('technology')" href="#technology" id="technology">Technology</a>
-                        <a class="dropdown-item colorFont" onclick="Search('health')" href="#health" id="health">Health</a>
-                        <a class="dropdown-item colorFont" onclick="Search('sport')" href="#sport" id="sport">Sport</a>
-                        <a class="dropdown-item colorFont" onclick="Search('entertaiment')" href="#entertaiment" id="entertaiment">Entertaiment</a>
-                        <a class="dropdown-item colorFont" onclick="Search('fashion')" href="#fashion" id="fashion">Fashion</a>
-                        <a class="dropdown-item colorFont" onclick="Search('economy')" href="#economy" id="economy">Economy</a>
-                        <a class="dropdown-item colorFont" onclick="Search('political')" href="#political" id="political">Political</a>
-                        <a class="dropdown-item colorFont" onclick="Search('crime')" href="#crime" id="crime">Crime</a>
-                    </div>
-                    <!-- End dropdown category menu -->
-                </div>
-                <!-- End dropdown category -->
-            </div>
-            <!-- Start News Display -->
-            <div id="newsdisplay"></div>
-            <!-- End News Display -->
-        </div>
-    </section>
-    <!-- END News Section -->
-
-    <!-- START Footer Section -->
-    <footer class="footer BGfeature">
-        <div class="container">
-            <div class="textFooter">
-                <p>This project was created to help us <b>pass</b> ECOM 4424</p>
-            </div>
-            <div class="emailFooter">
-                <a href="mailto:citychronofeedback@gmail.com" class="aFooter">
-                    Any feedback?
-                </a>
-            </div>
-        </div>
-    </footer>
-    <!-- END Footer Section -->
-
     <!-- js file Link -->
     <script src="js/main.js"></script>
     <!-- JQuery Link -->
