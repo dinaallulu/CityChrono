@@ -404,7 +404,228 @@ async function Search(query) {
     // END News Section
 
     // START Time & Temp Section
-    
+    const response = await fetch(apiurl + query)
+    var data = await response.json();          //diaplay as json formate
+    console.log(data);                        //display data
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp); //لتقريب الرقم الى عدد صحيح
+    document.querySelector(".status").innerHTML = data.weather[0].description;
+
+    //  ...........check for image status...........
+    if (data.weather[0].main == "Clouds") {
+        weatherImg.src = "image/clouds.png";
+    }
+    else if (data.weather[0].main == "Clear") {
+        weatherImg.src = "image/clear.png";
+    }
+    else if (data.weather[0].main == "Rain") {
+        weatherImg.src = "image/rain.png";
+    }
+    else if (data.weather[0].main == "Drizzle") {
+        weatherImg.src = "image/drizzle.png";
+    }
+    else if (data.weather[0].main == "Mist") {
+        weatherImg.src = "image/mist.png";
+    }
+    else if (data.weather[0].main == "Snow") {
+        weatherImg.src = "image/snow.png";
+    }
+    // else if (data.weather[0].main == "fog") {
+    //     weatherImg.src = "image/fog.png";
+    // }
+
+    checkDateTime(data["coord"]["lon"], data["coord"]["lat"]);
+}
+
+async function checkDateTime(lon, lat) {
+    const response = await fetch('https://api.ipgeolocation.io/timezone?apiKey=9ee80e5230a846c590b7559c62101142&lat=' + lat + '&long=' + lon);
+    var data = await response.json();          //diaplay as json formate
+
+    console.log(data);
+
+    const myArray = data["date_time_txt"].split(" ");
+    document.querySelector(".day").innerHTML = myArray[0];
+    document.querySelector(".date_month").innerHTML = myArray[1];
+    document.querySelector(".date_num").innerHTML = myArray[2];
+
+    // console.log(myArray[0])
+    // console.log(myArray[1])
+
+    const myArray2 = data["time_12"].split(" ");
+    document.querySelector(".statusTime").innerHTML = myArray2[1];
+    const myArray3 = data["time_12"].split(":");
+    document.querySelector(".currentTimeInHour").innerHTML = myArray3[0] + ':';
+    document.querySelector(".currentTimeInMin").innerHTML = myArray3[1];
+    // console.log(myArray2[1])
+
+
+    //START Background & Color Theam
+
+    //change time depend on time
+    let time1 = data["date"] + ' 20:00';
+    let time2 = data["date"] + ' 07:00';
+    //night
+    if (data["date_time"] > time1 || data["date_time"] < time2) {
+        //Body
+        document.querySelector(".body").style.background = "#071420";
+        document.querySelectorAll(".body, .headerSection, .textFooter, .aFooter").forEach(el => el.style.color = "#fff");
+        document.querySelector(".headerSection .material-symbols-outlined").style.color = "#ffffffd4";
+
+        //BackGround Feature
+        document.querySelectorAll(".BGfeature").forEach(el => el.style.background = "#253141");
+        document.querySelectorAll(".innerBG").forEach(el => el.style.background = "#546a7b66");
+
+        //Color Font
+        document.querySelectorAll(".colorFont").forEach(el => el.style.color = "#fff");
+
+        //ToDo
+        document.querySelectorAll(".item").forEach(el => el.style.background = "#546a7e59");
+        document.querySelector(".item input[type='text']").style.color = "#fff";
+        document.querySelector(".item input[type='checkbox']").style.border = "2px solid #fff";
+
+        items.forEach(item => {
+            const input = item.querySelector('input[type="text"]');
+            input.style.fontSize = '16px';
+            input.style.color = '#fff';
+        });
+
+        const checkboxInputs = document.querySelectorAll('.item input[type="checkbox"]');
+        checkboxInputs.forEach(input => {
+            input.style.border = "2px solid #fff";
+            input.addEventListener('change', function () {
+                if (this.checked) {
+                    this.style.backgroundColor = "#fff";
+                    this.style.borderColor = "#fff";
+                    this.style.position = "relative";
+                } else {
+                    this.style.backgroundColor = "";
+                    this.style.borderColor = "#fff";
+                    this.style.position = "";
+                }
+            });
+        });
+
+        const completedItems = document.querySelectorAll('.item.complete input[type="text"]');
+
+        for (let i = 0; i < completedItems.length; i++) {
+            completedItems[i].style.textDecoration = "line-through";
+            completedItems[i].style.textDecorationThickness = "2px";
+            completedItems[i].style.textDecorationColor = "#fff";
+            completedItems[i].style.textDecorationStyle = "solid";
+        }
+
+
+        const checkedCheckboxInputs = document.querySelectorAll('.item input[type="checkbox"]:checked');
+        checkedCheckboxInputs.forEach(input => {
+            input.style.backgroundColor = "#fff";
+            input.style.borderColor = "#fff";
+            input.style.position = "relative";
+        });
+
+        const checkedCheckboxInputBefore = document.querySelectorAll('.item input[type="checkbox"]:checked::before');
+        checkedCheckboxInputBefore.forEach(input => {
+            input.style.content = "'\\2713'";
+            input.style.fontSize = "18px";
+            input.style.fontWeight = "900";
+            input.style.position = "absolute";
+            input.style.top = "50%";
+            input.style.left = "50%";
+            input.style.transform = "translate(-50%, -50%)";
+        });
+
+        //Spotify
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#fff");
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#fff");
+
+        //Radio
+        document.querySelectorAll(".radio-content #radioContainer .imgRadio img").forEach(el => el.style.border = "10px solid #071420");
+        document.querySelector(".radio-content #radioControls").style.background = "#071420";
+
+        //News
+        document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#fff");
+        document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5, #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#fff");
+    } 
+
+    //morning
+    else { 
+        //Body
+        document.querySelector(".body").style.background = "#93bfcf7d";
+        document.querySelectorAll(".body, .headerSection, .textFooter, .aFooter").forEach(el => el.style.color = "#062232");
+        document.querySelector(".headerSection .material-symbols-outlined").style.color = "#000000bd";
+
+        //BackGround Feature
+        document.querySelectorAll(".BGfeature").forEach(el => el.style.background = "#93BFCF");
+        document.querySelectorAll(".innerBG").forEach(el => el.style.background = "#93bfcf4d");
+
+        //Color Font
+        document.querySelectorAll(".colorFont").forEach(el => el.style.color = "#062232");
+
+        //ToDo
+        document.querySelectorAll(".item").forEach(el => el.style.background = "#93BFCF");
+        document.querySelector(".item input[type='text']").style.color = "#062232";
+        document.querySelector(".item input[type='checkbox']").style.border = "2px solid #062232";
+
+        items.forEach(item => {
+            const input = item.querySelector('input[type="text"]');
+            input.style.fontSize = '16px';
+            input.style.color = '#000';
+        });
+
+        const checkboxInputs = document.querySelectorAll('.item input[type="checkbox"]');
+        checkboxInputs.forEach(input => {
+            input.style.border = "2px solid #000";
+            input.addEventListener('change', function () {
+                if (this.checked) {
+                    this.style.backgroundColor = "#062232";
+                    this.style.borderColor = "#062232";
+                    this.style.position = "relative";
+                } else {
+                    this.style.backgroundColor = "";
+                    this.style.borderColor = "#062232";
+                    this.style.position = "";
+                }
+            });
+        });
+
+        const completedItems = document.querySelectorAll('.item.complete input[type="text"]');
+
+        for (let i = 0; i < completedItems.length; i++) {
+            completedItems[i].style.textDecoration = "line-through";
+            completedItems[i].style.textDecorationThickness = "2px";
+            completedItems[i].style.textDecorationColor = "#062232";
+            completedItems[i].style.textDecorationStyle = "solid";
+        }
+
+
+        const checkedCheckboxInputs = document.querySelectorAll('.item input[type="checkbox"]:checked');
+        checkedCheckboxInputs.forEach(input => {
+            input.style.backgroundColor = "#062232";
+            input.style.borderColor = "#062232";
+            input.style.position = "relative";
+        });
+
+        const checkedCheckboxInputBefore = document.querySelectorAll('.item input[type="checkbox"]:checked::before');
+        checkedCheckboxInputBefore.forEach(input => {
+            input.style.content = "'\\2713'";
+            input.style.fontSize = "18px";
+            input.style.fontWeight = "900";
+            input.style.position = "absolute";
+            input.style.top = "50%";
+            input.style.left = "50%";
+            input.style.transform = "translate(-50%, -50%)";
+        });
+
+        //Spotify
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.fill = "#062232");
+        document.querySelectorAll(".media-wrapper span, .media-wrapper svg").forEach(el => el.style.color = "#062232");
+
+        //Radio
+        document.querySelectorAll(".radio-content #radioContainer .imgRadio img").forEach(el => el.style.border = "10px solid #93BFCF");
+
+        //News
+        document.querySelectorAll(".dropdown-item, lastestNews").forEach(el => el.style.color = "#000");
+        document.querySelectorAll("#newsdisplay .newsCards .newsTitle , #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#000");
+    }
     //END Background & Color Theam
 }
 //END Time & Temp Section
