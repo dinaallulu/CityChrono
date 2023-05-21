@@ -4,9 +4,11 @@
 const list_el = document.getElementById("list");
 const create_btn_el = document.getElementById("create");
 
+// global vriable thatll hold todos info on the screen
 let todos = [];
 
 create_btn_el.addEventListener('click', CreateNewTodo);
+
 function CreateNewTodo() {
     // check the number of tasks if its 50 
     if (todos.length >= 50) {
@@ -157,9 +159,10 @@ items.forEach(item => {
     input.style.flex = '1 1 0%';
 });
 // END To-Do-List Div
+
 // START Radio Div
 // Set up API endpoint
-const url = "https://de1.api.radio-browser.info/json/stations/bycountry/canada";
+const url = "https://de1.api.radio-browser.info/json/stations/bycountry/palestine";
 
 // Keep track of currently playing audio and current station
 let currentAudio = null;
@@ -343,7 +346,6 @@ async function fetchData(query) {
 fetchData("all").then(data => renderMain(data.articles))
 
 function renderMain(arr) {
-
     let newsdisplayHTML = ''
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].urlToImage) {
@@ -430,9 +432,6 @@ async function Search(query) {
     else if (data.weather[0].main == "Snow") {
         weatherImg.src = "image/snow.png";
     }
-    // else if (data.weather[0].main == "fog") {
-    //     weatherImg.src = "image/fog.png";
-    // }
 
     checkDateTime(data["coord"]["lon"], data["coord"]["lat"]);
 }
@@ -448,23 +447,18 @@ async function checkDateTime(lon, lat) {
     document.querySelector(".date_month").innerHTML = myArray[1];
     document.querySelector(".date_num").innerHTML = myArray[2];
 
-    // console.log(myArray[0])
-    // console.log(myArray[1])
-
     const myArray2 = data["time_12"].split(" ");
     document.querySelector(".statusTime").innerHTML = myArray2[1];
     const myArray3 = data["time_12"].split(":");
     document.querySelector(".currentTimeInHour").innerHTML = myArray3[0] + ':';
     document.querySelector(".currentTimeInMin").innerHTML = myArray3[1];
-    // console.log(myArray2[1])
-
 
     //START Background & Color Theam
 
     //change time depend on time
     let time1 = data["date"] + ' 20:00';
     let time2 = data["date"] + ' 07:00';
-    //night
+    //NIGHT
     if (data["date_time"] > time1 || data["date_time"] < time2) {
         //Body
         document.querySelector(".body").style.background = "#071420";
@@ -546,7 +540,7 @@ async function checkDateTime(lon, lat) {
         document.querySelectorAll("#newsdisplay .newsCards .newsTitle .newsTitleH5, #newsdisplay .newsCards .newsTitle .newsTitleP").forEach(el => el.style.color = "#fff");
     } 
 
-    //morning
+    //MORNING
     else { 
         //Body
         document.querySelector(".body").style.background = "#93bfcf7d";
