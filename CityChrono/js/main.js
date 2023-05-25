@@ -365,7 +365,7 @@ function renderMain(arr) {
             } else {
                 newsdisplayHTML += `
                 <div class="newsCards">
-                    <a class="newsDetails" href=${arr[i].URLNews} target="_blank">
+                    <a class="newsDetails" href=${arr[i].url} target="_blank">
                     <img src=${arr[i].urlToImage} alt="">
                     <div class="newsTitle colorFont">
                         <h5 class="newsTitleH5 colorFont">${arr[i].title}</h5>
